@@ -1,7 +1,7 @@
 // src/components/ui/AvatarGlow.tsx
 
-import profile from "../../assets/profile.png";
-import arrow from "../../assets/arrow.png";
+import profile from "@/assets/profile.png";
+import arrow from "@/assets/arrow.png";
 
 export default function AvatarGlow() {
   return (

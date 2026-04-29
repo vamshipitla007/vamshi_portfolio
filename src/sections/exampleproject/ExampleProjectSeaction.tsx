@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
-import project1 from "../../assets/project1.png";
-import project2 from "../../assets/project2.png";
+import project1 from "@/assets/project1.png";
+import project2 from "@/assets/project2.png";
 import ProjectRow from "../../components/ui/ProjectRow";
 
 export const exampleProjects = [

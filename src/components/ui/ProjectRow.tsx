@@ -1,4 +1,4 @@
-import CursorImage from "../../assets/cursor.png";
+import CursorImage from "@/assets/cursor.png";
 
 type Props = {
   title: string;

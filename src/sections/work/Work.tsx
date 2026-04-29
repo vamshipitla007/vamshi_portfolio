@@ -1,10 +1,10 @@
 /* eslint-disable react-refresh/only-export-components */
 import Container from "../../components/layout/Container";
 import WorkCard from "../../components/ui/WorkCard";
-import cbiImage from "../../assets/cbi.png";
-import work2Image from "../../assets/work2.png";
-import work3Image from "../../assets/work3.png";
-import work4Image from "../../assets/work4.png";
+import cbiImage from "@/assets/cbi.png";
+import work2Image from "@/assets/work2.png";
+import work3Image from "@/assets/work3.png";
+import work4Image from "@/assets/work4.png";
 
 export const workExperiencedata = [
   {

@@ -1,4 +1,4 @@
-import SkillImage from "../../assets/skill.png";
+import SkillImage from "@/assets/skill.png";
 
 export default function SkillSection() {
   return (
