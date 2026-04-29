@@ -90,7 +90,7 @@ export default function ProjectRow({
           </p>
         </div>
 
-        <div className="flex gap-2 mt-2">
+        <div className={`flex gap-2 mt-2 ${reverse ? "justify-start" : "justify-end"}`}>
           <img
             src={CursorImage}
             alt=""
