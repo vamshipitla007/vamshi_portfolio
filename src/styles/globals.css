@@ -1,0 +1,18 @@
+/* globals.css */
+@import "tailwindcss";
+@import "./variables.css";
+
+body {
+  background: radial-gradient(circle at top, #1a0033, #0b001a);
+  color: var(--text-primary);
+}
+
+.glow {
+  box-shadow: 0 0 80px rgba(139, 92, 246, 0.4);
+}
+
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
