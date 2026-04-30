@@ -9,7 +9,7 @@ import Work from "@/sections/work/Work";
 
 export default function Portfolio() {
 	return (
-		<>
+		<div className="bg-[#0b001a] text-white">
 			<Navbar />
 
 			<Routes>
@@ -26,6 +26,6 @@ export default function Portfolio() {
 					}
 				/>
 			</Routes>
-		</>
+		</div>
 	);
 }
