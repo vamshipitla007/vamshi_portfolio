@@ -1,21 +1,21 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/layout/Navbar";
-import HomeSection from "./sections/about/HomeSection";
-import ContactSection from "./sections/contact/ContactSection";
-import ExampleProjectSection from "./sections/exampleproject/ExampleProjectSeaction";
-import SkillSection from "./sections/skill/SkillSection";
-import Work from "./sections/work/Work";
+import Portfolio from "./apps/Portfolio";
+import Restaurantapp from "./apps/Restaurantapp";
 
 function App() {
-
   return (
-    <div className="bg-[#0b001a] text-white">
-      <Navbar />
-      <HomeSection/>
-      <Work/>
-      <SkillSection/>
-      <ExampleProjectSection/>
-      <ContactSection/>
+    <div className="bg-[#f1f1f1] text-white">
+      <Routes>
+        {/* Default */}
+        <Route path="/" element={<Restaurantapp />} />
+
+        {/* Portfolio App */}
+        <Route path="/portfolio/*" element={<Portfolio />} />
+
+        {/* Restaurant App */}
+        <Route path="/restaurant/*" element={<Restaurantapp />} />
+      </Routes>
     </div>
   );
 }
