@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Portfolio from "./apps/Portfolio";
-import Restaurantapp from "./apps/Restaurantapp";
+import Restaurantapp from "./apps/restaurantapp/Restaurantapp";
 
 function App() {
   return (
