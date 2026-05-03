@@ -7,14 +7,13 @@ function App() {
   return (
     <div className="bg-[#f1f1f1] text-white">
       <Routes>
-        {/* Default */}
-        <Route path="/" element={<Restaurantapp />} />
 
-        {/* Portfolio App */}
+        {/* Portfolio */}
         <Route path="/portfolio/*" element={<Portfolio />} />
 
-        {/* Restaurant App */}
+        {/* Restaurant */}
         <Route path="/restaurant/*" element={<Restaurantapp />} />
+
       </Routes>
     </div>
   );

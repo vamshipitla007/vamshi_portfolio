@@ -10,8 +10,10 @@ import {
   validateName,
   validatePassword,
 } from "@/utils/validators";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -38,7 +40,7 @@ const SignUp = () => {
 
     const hasError = Object.values(newErrors).some((err) => err);
     if (hasError) return;
-
+    navigate("/restaurant/homepage/home");
     console.log("Form Submitted", form);
   };
 

@@ -8,9 +8,9 @@ export default function Restaurantapp() {
   return (
     <Routes>
       <Route path="/" element={<SignUp />} />
-      <Route path="/homepage" element={<RestaurantLayout />}>
-        {/* Pages */}
-        <Route index element={<Homepage />} />
+
+      <Route path="homepage" element={<RestaurantLayout />}>
+        <Route path="home" element={<Homepage />} />
         <Route path="menu" element={<MenuSection title="Menu" />} />
         <Route path="about" element={<div>About Page</div>} />
         <Route path="order" element={<div>Order Page</div>} />
