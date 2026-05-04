@@ -1,5 +1,5 @@
 import { menuData } from "@/data/chefmenudata";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Icon1 from "@/assets/chefrestaurant/icon1.png";
 import Meal from "@/assets/chefrestaurant/meal.png";
 import Drinks from "@/assets/chefrestaurant/drinks.png";
@@ -16,9 +16,17 @@ const days = [
 ];
 
 const ChefMenu = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedCategory, setSelectedCategory] = useState("power");
   const [selectedDay, setSelectedDay] = useState("Monday");
   const [selectedWeek, setSelectedWeek] = useState(1);
+
+  const scroll = (offset: number) => {
+    scrollRef.current?.scrollBy({
+      left: offset,
+      behavior: "smooth",
+    });
+  };
 
   const selectedPlan = menuData.find(
     (m) => m.category === selectedCategory && m.week === selectedWeek,
@@ -34,7 +42,7 @@ const ChefMenu = () => {
 
       {/* CATEGORY FILTER */}
       <div className="flex gap-4 mb-6">
-        {menuData.map((cat) => (
+        {[...menuData].map((cat) => (
           <button
             key={cat.category}
             onClick={() => setSelectedCategory(cat.category)}
@@ -45,8 +53,8 @@ const ChefMenu = () => {
             }`}
           >
             <div className="flex-row justify-center align-center">
-              <p>{cat.category.toUpperCase()}</p>
-              <p>{`${cat.kcal} kcal`}</p>
+              <p className="text-1xl">{cat.category.toUpperCase()}</p>
+              <p className="text-1x1">{`${cat.kcal} kcal`}</p>
             </div>
           </button>
         ))}
@@ -105,30 +113,73 @@ const ChefMenu = () => {
           </div>
         </div>
 
-        {/* MEALS */}
-        <div className="grid grid-cols-5 gap-6">
-          {selectedDayData?.meals.map((meal, index) => (
-            <div key={meal.id} className="bg-white rounded-3xl p-4 relative">
-              {/* NUMBER BADGE */}
-              <div className="absolute top-[-12px] right-4 bg-orange-400 text-white w-10 h-10 flex items-center justify-center rounded-full font-bold">
-                {String(index + 1).padStart(2, "0")}
-              </div>
+        <div className="relative">
+          {/* LEFT FADE */}
+          <div
+            className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none 
+        bg-gradient-to-r from-lime-500 to-transparent"
+          />
 
-              <img src={meal.image} className="w-full h-40 object-contain" />
+          {/* RIGHT FADE */}
+          <div
+            className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none 
+        bg-gradient-to-l from-lime-500 to-transparent"
+          />
 
-              <h3 className="text-lime-600 mt-4 font-semibold">{meal.title}</h3>
+          {/* LEFT ARROW */}
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full border-2 border-lime-300 flex items-center justify-center bg-white/60 backdrop-blur"
+            onClick={() => scroll(-300)}
+          >
+            ←
+          </button>
 
-              <p className="text-sm mt-2">{meal.description}</p>
+          {/* RIGHT ARROW */}
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full border-2 border-lime-300 flex items-center justify-center bg-white/60 backdrop-blur"
+            onClick={() => scroll(300)}
+          >
+            →
+          </button>
 
-              <div className="text-xs mt-3 text-gray-600 space-y-1">
-                <p>Protein - {meal.protein} g</p>
-                <p>Fat - {meal.fat} g</p>
-                <p>Carbs - {meal.carbs} g</p>
-                <p>Energy - {meal.calories} kcal</p>
-                <p>Total weight: {meal.weight} g</p>
-              </div>
+          {/* SCROLL CONTAINER */}
+          <div className="overflow-visible">
+            <div
+              ref={scrollRef}
+                  className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar px-16"
+            >
+              {selectedDayData?.meals.map((meal, index) => (
+                <div
+                  key={meal.id}
+                  className="min-w-[260px] bg-white rounded-3xl p-4 relative overflow-visible"
+                >
+                  {/* NUMBER BADGE */}
+                  <div className="absolute -top-3 right-3 z-10 bg-orange-400 text-white w-10 h-10 flex items-center justify-center rounded-full font-bold">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+
+                  <img
+                    src={meal.image}
+                    className="w-full h-40 object-contain"
+                  />
+
+                  <h3 className="text-lime-600 mt-4 font-semibold">
+                    {meal.title}
+                  </h3>
+
+                  <p className="text-sm mt-2 text-black">{meal.description}</p>
+
+                  <div className="text-xs mt-3 text-gray-600 space-y-1">
+                    <p>Protein - {meal.protein} g</p>
+                    <p>Fat - {meal.fat} g</p>
+                    <p>Carbs - {meal.carbs} g</p>
+                    <p>Energy - {meal.calories} kcal</p>
+                    <p>Total weight: {meal.weight} g</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
         <div className="pt-4">
           <p className="text-white">

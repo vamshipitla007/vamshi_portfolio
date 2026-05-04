@@ -1,9 +1,10 @@
+import ChefRestaurantFooter from "@/sections/chefrestaurant/FooterSection";
 import ChefNavbar from "@/sections/navbar/ChefNavbar";
 import { Outlet } from "react-router-dom";
 
 const ChefRestaurantLayout = () => {
   return (
-    <div className="bg-white min-h-screen flex flex-col">
+    <div className="bg-white min-h-screen flex flex-col overflow-hidden">
       {/* Navbar */}
       <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-5 w-full">
         <ChefNavbar />
@@ -15,6 +16,7 @@ const ChefRestaurantLayout = () => {
       </main>
 
       {/* Footer */}
+      <ChefRestaurantFooter />
     </div>
   );
 };
