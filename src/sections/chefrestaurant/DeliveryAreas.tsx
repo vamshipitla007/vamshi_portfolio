@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+// import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "../leafletSetup";
 
@@ -29,7 +29,7 @@ export default function DeliveryAreas() {
       </div>
 
       {/* MAP */}
-      <div className="rounded-3xl overflow-hidden">
+      {/* <div className="rounded-3xl overflow-hidden">
         <div className="h-[400px] w-full">
           <MapContainer
             center={position}
@@ -44,7 +44,7 @@ export default function DeliveryAreas() {
             <Marker position={position} />
           </MapContainer>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
