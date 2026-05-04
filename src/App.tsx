@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Portfolio from "./apps/Portfolio";
 import Restaurantapp from "./apps/restaurantapp/Restaurantapp";
+import ChefRestaurantapp from "./apps/restaurantapp/ChefRestaurantapp";
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
 
         {/* Restaurant */}
         <Route path="/restaurant/*" element={<Restaurantapp />} />
+
+        <Route path="/chefrestaurant/*" element={<ChefRestaurantapp />} />
 
       </Routes>
     </div>
