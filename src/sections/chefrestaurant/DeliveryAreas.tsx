@@ -2,7 +2,7 @@
 // import "leaflet/dist/leaflet.css";
 // import "../leafletSetup";
 
-const position: [number, number] = [41.7151, 44.8271];
+// const position: [number, number] = [41.7151, 44.8271];
 
 export default function DeliveryAreas() {
   return (
