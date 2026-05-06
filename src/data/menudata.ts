@@ -6,6 +6,9 @@ import penne from "@/assets/restaurant/menus/penne.png";
 import risotto from "@/assets/restaurant/menus/risto.png";
 import pizza from "@/assets/restaurant/menus/splitz.png";
 
+import coffee1 from "@/assets/coffeeapp/coffee1.png";
+import coffee2 from "@/assets/coffeeapp/coffee2.png";
+
 
 export const menuItems = [
   { id: 1, name: "Spaghetti Classic", price: 12.05, category: "Dinner", image: noobles2, rating: 4 },
@@ -38,4 +41,39 @@ export const menuItems = [
   { id: 22, name: "Cheese Pizza", price: 13.5, category: "Drink", image: pizza, rating: 5 },
   { id: 23, name: "Veg Pizza", price: 11.8, category: "Drink", image: pizza, rating: 4 },
   { id: 24, name: "Italian Pizza", price: 14.2, category: "Drink", image: pizza, rating: 5 },
+];
+
+export const coffees = [
+  {
+    id: 1,
+    name: "Caffe Mocha",
+    type: "Deep Foam",
+    price: 4.53,
+    rating: 4.8,
+    image: coffee1,
+  },
+  {
+    id: 2,
+    name: "Flat White",
+    type: "Espresso",
+    price: 3.53,
+    rating: 4.8,
+    image: coffee2,
+  },
+  {
+    id: 3,
+    name: "Latte",
+    type: "Milk Coffee",
+    price: 5.20,
+    rating: 4.9,
+    image: coffee1,
+  },
+  {
+    id: 4,
+    name: "Americano",
+    type: "Strong",
+    price: 3.10,
+    rating: 4.7,
+    image: coffee2,
+  },
 ];

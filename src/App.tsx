@@ -3,6 +3,7 @@ import "./App.css";
 import Portfolio from "./apps/Portfolio";
 import Restaurantapp from "./apps/restaurantapp/Restaurantapp";
 import ChefRestaurantapp from "./apps/restaurantapp/ChefRestaurantapp";
+import CoffeeApp from "./apps/CoffeeApp";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path="/restaurant/*" element={<Restaurantapp />} />
 
         <Route path="/chefrestaurant/*" element={<ChefRestaurantapp />} />
+
+        <Route path="/coffeeapp/*" element={<CoffeeApp />} />
 
       </Routes>
     </div>
