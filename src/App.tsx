@@ -4,6 +4,7 @@ import Portfolio from "./apps/Portfolio";
 import Restaurantapp from "./apps/restaurantapp/Restaurantapp";
 import ChefRestaurantapp from "./apps/restaurantapp/ChefRestaurantapp";
 import CoffeeApp from "./apps/CoffeeApp";
+import AdminDashboard from "./apps/admin_dashboard/AdminDashboard";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Route path="/chefrestaurant/*" element={<ChefRestaurantapp />} />
 
         <Route path="/coffeeapp/*" element={<CoffeeApp />} />
+
+        <Route path="/admin-dashboard/*" element={<AdminDashboard/>} />
 
       </Routes>
     </div>
