@@ -106,7 +106,7 @@ const AdminDashboardSidebar = () => {
       <aside
         className={`fixed lg:relative top-0 left-0 z-50 h-screen bg-white border-r border-[#ECECEC] transition-all duration-300 flex flex-col ${
           openSidebar
-            ? "w-[220px] h-screen translate-x-0"
+            ? "w-[240px] h-screen translate-x-0"
             : "w-0 -translate-x-full h-screen lg:w-[100px] lg:translate-x-0"
         }`}
       >
