@@ -1,11 +1,10 @@
 /* eslint-disable no-useless-assignment */
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import {
   Archive,
   Download,
   Info,
-  MailOpen,
   Search,
   Star,
   Trash2,
@@ -133,18 +132,18 @@ const EmailList = ({
     );
   };
 
-  const toggleRead = (id: number) => {
-    setEmails((prev) =>
-      prev.map((email) =>
-        email.id === id
-          ? {
-              ...email,
-              read: !email.read,
-            }
-          : email,
-      ),
-    );
-  };
+  // const toggleRead = (id: number) => {
+  //   setEmails((prev) =>
+  //     prev.map((email) =>
+  //       email.id === id
+  //         ? {
+  //             ...email,
+  //             read: !email.read,
+  //           }
+  //         : email,
+  //     ),
+  //   );
+  // };
 
   return (
     <div className="overflow-hidden rounded-[22px] border border-[#E7E7E9] bg-white">
