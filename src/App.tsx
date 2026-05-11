@@ -5,6 +5,7 @@ import Restaurantapp from "./apps/restaurantapp/Restaurantapp";
 import ChefRestaurantapp from "./apps/restaurantapp/ChefRestaurantapp";
 import CoffeeApp from "./apps/CoffeeApp";
 import AdminDashboard from "./apps/admin_dashboard/AdminDashboard";
+import LoginScreen from "./sections/admindashboard/LoginScreen";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path="/coffeeapp/*" element={<CoffeeApp />} />
 
         <Route path="/admin-dashboard/*" element={<AdminDashboard/>} />
-
+        <Route path="/admin-dashboard/signin" element={<LoginScreen />} />
       </Routes>
     </div>
   );
