@@ -7,6 +7,7 @@ import CoffeeApp from "./apps/CoffeeApp";
 import AdminDashboard from "./apps/admin_dashboard/AdminDashboard";
 import LoginScreen from "./sections/admindashboard/LoginScreen";
 import TasteNestapp from "./apps/tastenest/TasteNestapp";
+import BankDashapp from "./apps/bankdash/BankDashapp";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/admin-dashboard/*" element={<AdminDashboard/>} />
         <Route path="/admin-dashboard/signin" element={<LoginScreen />} />
         <Route path="/tastenest/*" element={<TasteNestapp />} />
+        <Route path="/bankdash/*" element={<BankDashapp />} />
       </Routes>
     </div>
   );
