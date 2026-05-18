@@ -8,6 +8,7 @@ import AdminDashboard from "./apps/admin_dashboard/AdminDashboard";
 import LoginScreen from "./sections/admindashboard/LoginScreen";
 import TasteNestapp from "./apps/tastenest/TasteNestapp";
 import BankDashapp from "./apps/bankdash/BankDashapp";
+import TaskManagement from "./apps/taskmanagment/TaskManagement";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/admin-dashboard/signin" element={<LoginScreen />} />
         <Route path="/tastenest/*" element={<TasteNestapp />} />
         <Route path="/bankdash/*" element={<BankDashapp />} />
+        <Route path="/taskmanagement/*" element={<TaskManagement />} />
       </Routes>
     </div>
   );
