@@ -9,6 +9,7 @@ import LoginScreen from "./sections/admindashboard/LoginScreen";
 import TasteNestapp from "./apps/tastenest/TasteNestapp";
 import BankDashapp from "./apps/bankdash/BankDashapp";
 import TaskManagement from "./apps/taskmanagment/TaskManagement";
+import EuroTracksapp from "./apps/euro_tracks/EuroTracksapp";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/tastenest/*" element={<TasteNestapp />} />
         <Route path="/bankdash/*" element={<BankDashapp />} />
         <Route path="/taskmanagement/*" element={<TaskManagement />} />
+        <Route path="/eurotracks/*" element={<EuroTracksapp />} />
       </Routes>
     </div>
   );
