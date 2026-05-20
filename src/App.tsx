@@ -10,6 +10,7 @@ import TasteNestapp from "./apps/tastenest/TasteNestapp";
 import BankDashapp from "./apps/bankdash/BankDashapp";
 import TaskManagement from "./apps/taskmanagment/TaskManagement";
 import EuroTracksapp from "./apps/euro_tracks/EuroTracksapp";
+import GreendyApp from "./apps/greendy/Greendyapp";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/bankdash/*" element={<BankDashapp />} />
         <Route path="/taskmanagement/*" element={<TaskManagement />} />
         <Route path="/eurotracks/*" element={<EuroTracksapp />} />
+        <Route path="/greendy/*" element={<GreendyApp />} />
       </Routes>
     </div>
   );
