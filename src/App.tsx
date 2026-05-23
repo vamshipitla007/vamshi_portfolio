@@ -11,11 +11,15 @@ import BankDashapp from "./apps/bankdash/BankDashapp";
 import TaskManagement from "./apps/taskmanagment/TaskManagement";
 import EuroTracksapp from "./apps/euro_tracks/EuroTracksapp";
 import GreendyApp from "./apps/greendy/Greendyapp";
+import FoodDeliveryApp from "./apps/FoodDeliveryApp";
 
 function App() {
   return (
     <div className="bg-[#f1f1f1] text-white">
       <Routes>
+
+        {/* Food Delivery App */}
+        <Route path="/food-delivery/*" element={<FoodDeliveryApp />} />
 
         {/* Portfolio */}
         <Route path="/portfolio/*" element={<Portfolio />} />
