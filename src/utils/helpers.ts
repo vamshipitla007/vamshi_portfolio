@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Format price with Indian rupee
 export const formatPrice = (price: number): string => {
   return `₹${price.toLocaleString('en-IN')}`;
@@ -74,7 +75,7 @@ export const debounce = <T extends (...args: any[]) => any>(
   func: T,
   wait: number
 ): ((...args: Parameters<T>) => void) => {
-  let timeout: NodeJS.Timeout | null = null;
+  let timeout: any | null = null;
 
   return (...args: Parameters<T>) => {
     if (timeout) clearTimeout(timeout);

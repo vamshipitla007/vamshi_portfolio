@@ -1,6 +1,7 @@
-import axios, { AxiosInstance, AxiosError } from 'axios';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import axios, { AxiosError, type AxiosInstance } from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.example.com';
+const API_BASE_URL = 'https://api.example.com';
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
