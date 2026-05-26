@@ -12,6 +12,7 @@ import TaskManagement from "./apps/taskmanagment/TaskManagement";
 import EuroTracksapp from "./apps/euro_tracks/EuroTracksapp";
 import GreendyApp from "./apps/greendy/Greendyapp";
 import FoodDeliveryApp from "./apps/FoodDeliveryApp";
+import DydxGrantsapp from "./apps/dydx_grants/DydxGrantsapp";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/taskmanagement/*" element={<TaskManagement />} />
         <Route path="/eurotracks/*" element={<EuroTracksapp />} />
         <Route path="/greendy/*" element={<GreendyApp />} />
+        <Route path="/dydx/*" element={<DydxGrantsapp />} />
       </Routes>
     </div>
   );
