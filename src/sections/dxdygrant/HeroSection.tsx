@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const projectCards = [
   {
@@ -52,6 +53,11 @@ const projectCards = [
 ];
 
 export default function HeroSection() {
+  const navigate = useNavigate();
+
+  const handleApplyGrant = () => {
+    navigate("/dydx/apply");
+  }
   return (
     <section className="relative overflow-hidden bg-[#17172B]">
       {/* Grid Background */}
@@ -169,6 +175,7 @@ export default function HeroSection() {
                 items-center
                 gap-2
               "
+              onClick={handleApplyGrant}
             >
               Apply for grant
               <ArrowRight size={16} />

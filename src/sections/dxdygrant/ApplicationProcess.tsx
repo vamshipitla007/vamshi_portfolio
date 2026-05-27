@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const processSteps = [
   {
@@ -27,6 +28,11 @@ const processSteps = [
 ];
 
 export default function ApplicationProcess() {
+  const navigate = useNavigate();
+
+  const handleApplyGrant = () => {
+    navigate("/dydx/apply");
+  }
   return (
     <section className="relative overflow-hidden bg-[#17172B] py-24 md:py-32">
       {/* Grid Background */}
@@ -319,6 +325,7 @@ export default function ApplicationProcess() {
                 hover:scale-[1.02]
                 transition-all
               "
+              onClick={handleApplyGrant}
             >
               Apply for grant
 

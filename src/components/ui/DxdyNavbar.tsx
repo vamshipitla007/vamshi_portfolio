@@ -1,33 +1,39 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
+import Logo2 from "@/assets/dxdy/logo2.png";
 
 const navItems = [
   {
     title: "Discover initiatives",
-    path: "/",
+    path: "/dydx/discover-initiatives",
   },
   {
     title: "Funded grants",
-    path: "/grants",
+    path: "/dydx/funded-grants",
   },
   {
     title: "Program expenses",
-    path: "/expenses",
+    path: "/dydx/expenses",
   },
   {
     title: "Blog",
-    path: "/blog",
+    path: "/dydx/blog",
   },
   {
     title: "FAQ",
-    path: "/faq",
+    path: "/dydx/faq",
   },
 ];
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [mobileMenu, setMobileMenu] = useState(false);
+
+  const handleApplyGrant = () => {
+    navigate("/dydx/apply");
+  };
 
   return (
     <>
@@ -46,15 +52,8 @@ export default function Navbar() {
         <div className="relative z-20 max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="h-[92px] flex items-center justify-between">
             {/* Logo */}
-            <div className="flex flex-col leading-none">
-              <h1 className="text-white text-[32px] font-bold tracking-[-3px]">
-                dYdX
-              </h1>
 
-              <span className="text-[#6C63FF] text-[10px] font-semibold -mt-2">
-                grants
-              </span>
-            </div>
+            <img src={Logo2} alt="logo" className="w-[72px] object-contain" />
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-10">
@@ -64,13 +63,13 @@ export default function Navbar() {
                   to={item.path}
                   className={({ isActive }) =>
                     `
-                    text-[12px]
+                    text-[16px]
                     tracking-wide
                     transition-all
                     duration-300
                     ${
                       isActive
-                        ? "text-white"
+                        ? "text-[#6C63FF]"
                         : "text-[#D1D1E0] hover:text-white"
                     }
                   `
@@ -95,6 +94,7 @@ export default function Navbar() {
                   rounded-xl
                   font-semibold
                 "
+                onClick={handleApplyGrant}
               >
                 Apply for grant
               </button>
@@ -104,11 +104,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenu(!mobileMenu)}
                 className="lg:hidden text-white"
               >
-                {mobileMenu ? (
-                  <IoClose size={34} />
-                ) : (
-                  <HiMenuAlt3 size={34} />
-                )}
+                {mobileMenu ? <IoClose size={34} /> : <HiMenuAlt3 size={34} />}
               </button>
             </div>
           </div>
