@@ -4,6 +4,9 @@ import cartReducer from '../utils/cartSlice';
 import restaurantReducer from '../utils/restaurantSlice';
 import dishReducer from '../utils/dishSlice';
 import wishlistReducer from '../utils/wishlistSlice';
+import chatReducer from '../utils/chatSlice';
+import callReducer from '../utils/callSlice';
+import groupReducer from '../utils/groupSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +15,9 @@ export const store = configureStore({
     restaurants: restaurantReducer,
     dishes: dishReducer,
     wishlist: wishlistReducer,
+    chat: chatReducer,
+    call: callReducer,
+    group: groupReducer,
   },
 });
 

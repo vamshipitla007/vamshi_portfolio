@@ -13,6 +13,7 @@ import EuroTracksapp from "./apps/euro_tracks/EuroTracksapp";
 import GreendyApp from "./apps/greendy/Greendyapp";
 import FoodDeliveryApp from "./apps/FoodDeliveryApp";
 import DydxGrantsapp from "./apps/dydx_grants/DydxGrantsapp";
+import CMChatapp from "./apps/CMChat/CMChatapp";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/eurotracks/*" element={<EuroTracksapp />} />
         <Route path="/greendy/*" element={<GreendyApp />} />
         <Route path="/dydx/*" element={<DydxGrantsapp />} />
+        <Route path="/chat/*" element={<CMChatapp />} />
       </Routes>
     </div>
   );
