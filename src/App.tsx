@@ -14,7 +14,7 @@ import GreendyApp from "./apps/greendy/Greendyapp";
 import FoodDeliveryApp from "./apps/FoodDeliveryApp";
 import DydxGrantsapp from "./apps/dydx_grants/DydxGrantsapp";
 import CMChatapp from "./apps/CMChat/CMChatapp";
-import CreatorsApp from "./pages/CreatorsApp";
+import CreatorsApp from "./pages/CreatorsApp.jsx";
 
 function App() {
   return (
