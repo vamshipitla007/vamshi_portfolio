@@ -13,7 +13,8 @@ import PostPage from "../sections/foodzero/PostPage";
 export default function FoodZero() {
   return (
     <Routes>
-      <Route path="/" element={<FoodZeroLayout />}>
+      <Route element={<FoodZeroLayout />}>
+        <Route index element={<FoodZeroHomepage />} />
         <Route path="homepage" element={<FoodZeroHomepage />} />
         <Route path="menu" element={<MenuPage />} />
         <Route path="contact" element={<ContactPage />} />
