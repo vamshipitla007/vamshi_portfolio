@@ -15,6 +15,7 @@ import FoodDeliveryApp from "./apps/FoodDeliveryApp";
 import DydxGrantsapp from "./apps/dydx_grants/DydxGrantsapp";
 import CMChatapp from "./apps/CMChat/CMChatapp";
 import CreatorsApp from "./pages/CreatorsApp.jsx";
+import FoodZero from "./pages/FoodZero.jsx";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path="/dydx/*" element={<DydxGrantsapp />} />
         <Route path="/chat/*" element={<CMChatapp />} />
         <Route path="/creators" element={<CreatorsApp />} />
+        <Route path="/foodzero/*" element={<FoodZero />} />
       </Routes>
     </div>
   );
