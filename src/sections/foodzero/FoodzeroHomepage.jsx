@@ -11,8 +11,8 @@ import Pepper from "@/assets/foodzero/dish2.png";
 
 // Hero 2 Images
 import ChefImage from "@/assets/foodzero/cooking.png";
-import FruitImage from "@/assets/foodzero/firut.png";
-import AsparagusImage from "@/assets/foodzero/firut2.png";
+import FruitImage from "@/assets/foodzero/Firut.png";
+import AsparagusImage from "@/assets/foodzero/Firut2.png";
 
 import StarterImage from "@/assets/foodzero/Starters.png";
 import MainCourseImage from "@/assets/foodzero/mains.png";
