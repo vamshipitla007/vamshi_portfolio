@@ -17,6 +17,7 @@ import CMChatapp from "./apps/CMChat/CMChatapp";
 import CreatorsApp from "./pages/CreatorsApp.jsx";
 import FoodZero from "./pages/FoodZero.jsx";
 import TravelApp from "./apps/travel/TravelApp.js";
+import FactoryProApp from "./apps/factoryPro/FactoryProApp.js";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         <Route path="/creators" element={<CreatorsApp />} />
         <Route path="/foodzero/*" element={<FoodZero />} />
         <Route path="/travel/*" element={<TravelApp />} />
+        <Route path="/factorypro/*" element={<FactoryProApp />} />
       </Routes>
     </div>
   );
