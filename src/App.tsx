@@ -19,6 +19,7 @@ import FoodZero from "./pages/FoodZero.jsx";
 import TravelApp from "./apps/travel/TravelApp.js";
 import FactoryProApp from "./apps/factoryPro/FactoryProApp.js";
 import PUBGapp from "./apps/pubg/PUBGapp.js";
+import Gameapp from "./apps/game/Gameapp.js";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
         <Route path="/travel/*" element={<TravelApp />} />
         <Route path="/factorypro/*" element={<FactoryProApp />} />
         <Route path="/pubg/*" element={<PUBGapp />} />
+        <Route path="/esports/*" element={<Gameapp />} />
       </Routes>
     </div>
   );
