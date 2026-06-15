@@ -20,6 +20,7 @@ import TravelApp from "./apps/travel/TravelApp.js";
 import FactoryProApp from "./apps/factoryPro/FactoryProApp.js";
 import PUBGapp from "./apps/pubg/PUBGapp.js";
 import Gameapp from "./apps/game/Gameapp.js";
+import Base from "./apps/Base/Base.js";
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
         <Route path="/chefrestaurant/*" element={<ChefRestaurantapp />} />
 
         <Route path="/coffeeapp/*" element={<CoffeeApp />} />
-
+        <Route path="/Base/*" element={<Base />} />
         <Route path="/admin-dashboard/*" element={<AdminDashboard/>} />
         <Route path="/admin-dashboard/signin" element={<LoginScreen />} />
         <Route path="/tastenest/*" element={<TasteNestapp />} />
