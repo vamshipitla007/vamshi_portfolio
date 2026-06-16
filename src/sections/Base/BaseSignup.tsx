@@ -1,133 +1,340 @@
+import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
-import React from "react";
+import logo from "@/assets/base/Image3.png";
+import illustration from "@/assets/base/Image2.png";
+import { useNavigate } from "react-router-dom";
 
-export default function SignupPage() {
+const BaseSignup = () => {
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    console.log({
+      fullName: formData.get("fullname"),
+      email: formData.get("email"),
+      username: formData.get("username"),
+      password: formData.get("password"),
+      agree: formData.get("terms"),
+    });
+    navigate("/Base/dashboard");
+  };
+
   return (
-    <div className="min-h-screen flex bg-[#f5f6fa]">
-      
-      {/* LEFT PANEL */}
-      <div className="w-full md:w-[380px] bg-white flex flex-col justify-center px-8 py-10 shadow-sm">
-        
-        {/* Logo + Title */}
-        <div className="flex flex-col items-center mb-6">
-          <div className="w-14 h-14 rounded-full bg-indigo-500 flex items-center justify-center">
-            <span className="text-white text-xl">⚡</span>
-          </div>
-          <h2 className="mt-3 text-lg font-semibold text-gray-700">
-            Sign Up
-          </h2>
-        </div>
+    <div className="min-h-screen bg-[#E7E7E7]">
+      <div className="min-h-[92vh] bg-[#F5F5F5] flex flex-col lg:flex-row overflow-hidden">
 
-        {/* Social Login */}
-        <div className="flex gap-3 mb-4">
-          <button className="flex items-center justify-center w-full border rounded-lg py-2 text-sm bg-gray-50 hover:bg-gray-100">
-            <img
-              src="https://www.svgrepo.com/show/475656/google-color.svg"
-              alt="google"
-              className="w-4 mr-2"
-            />
-            Google
-          </button>
+        {/* Left Section */}
+        <section
+          className="
+            w-full 
+            lg:w-[30%]
+            bg-[#F8F8F8]
+            flex 
+            justify-center 
+            items-center
+            px-7 
+            py-10
+          "
+        >
+          <div className="w-full max-w-[320px]">
 
-          <button className="flex items-center justify-center w-full border rounded-lg py-2 text-sm bg-gray-50 hover:bg-gray-100">
-            <img
-              src="https://www.svgrepo.com/show/475647/facebook-color.svg"
-              alt="facebook"
-              className="w-4 mr-2"
-            />
-            Facebook
-          </button>
-        </div>
-
-        <div className="text-center text-gray-400 text-sm mb-4">Or</div>
-
-        {/* FORM */}
-        <form className="space-y-4">
-          
-          <div>
-            <label className="text-xs text-gray-500">Full Name</label>
-            <input
-              type="text"
-              placeholder="Jiangyu"
-              className="w-full mt-1 px-3 py-2 text-sm border rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            />
-          </div>
-
-          <div>
-            <label className="text-xs text-gray-500">Email Address</label>
-            <input
-              type="email"
-              placeholder="example@gmail.com"
-              className="w-full mt-1 px-3 py-2 text-sm border rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            />
-          </div>
-
-          <div>
-            <label className="text-xs text-gray-500">Username</label>
-            <input
-              type="text"
-              placeholder="johnkivena4362"
-              className="w-full mt-1 px-3 py-2 text-sm border rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            />
-          </div>
-
-          <div>
-            <label className="text-xs text-gray-500">Password</label>
-            <div className="relative">
-              <input
-                type="password"
-                placeholder="••••••••"
-                className="w-full mt-1 px-3 py-2 text-sm border rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            {/* Logo */}
+            <div className="flex justify-center">
+              <img
+                src={logo}
+                alt="Logo"
+                className="w-[82px] h-[82px]"
               />
-              <span className="absolute right-3 top-3 text-gray-400 cursor-pointer">
-                👁️
-              </span>
             </div>
-          </div>
 
-          {/* Terms */}
-          <div className="flex items-start gap-2 text-xs text-gray-500">
-            <input type="checkbox" className="mt-1 accent-indigo-500" />
-            <p>
-              By creating an account you agree to the{" "}
-              <span className="text-indigo-500 cursor-pointer">
-                terms of use
-              </span>{" "}
-              and our{" "}
-              <span className="text-indigo-500 cursor-pointer">
-                privacy policy
+
+            {/* Heading */}
+            <h1
+              className="
+                text-center 
+                text-[18px]
+                font-medium
+                text-[#050521]
+                mt-8
+              "
+            >
+              Sign Up
+            </h1>
+
+
+            {/* Social Buttons */}
+            <div className="flex gap-4 mt-10">
+
+              <button
+                type="button"
+                className="
+                  flex-1
+                  h-[44px]
+                  bg-[#EFEFEF]
+                  rounded-md
+                  text-[15px]
+                  font-medium
+                  text-[#23233B]
+                "
+              >
+                Google
+              </button>
+
+
+              <button
+                type="button"
+                className="
+                  flex-1
+                  h-[44px]
+                  bg-[#EFEFEF]
+                  rounded-md
+                  text-[15px]
+                  font-medium
+                  text-[#23233B]
+                "
+              >
+                Facebook
+              </button>
+
+            </div>
+
+
+            {/* Divider */}
+            <div className="flex items-center my-6">
+              <div className="h-px flex-1 bg-[#D9D9D9]" />
+
+              <span className="mx-4 text-[15px] text-[#202040]">
+                Or
               </span>
-            </p>
+
+              <div className="h-px flex-1 bg-[#D9D9D9]" />
+            </div>
+
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+
+              {/* Full Name */}
+              <div>
+                <label className="text-[15px] font-medium text-[#202040]">
+                  Full Name
+                </label>
+
+                <input
+                  name="fullname"
+                  required
+                  placeholder="Jiangyu"
+                  className="
+                    mt-3
+                    w-full
+                    h-[44px]
+                    rounded-md
+                    bg-[#EFEFEF]
+                    px-4
+                    text-[14px]
+                    placeholder:text-[#767686]
+                    outline-none
+                  "
+                />
+              </div>
+
+
+              {/* Email */}
+              <div>
+                <label className="text-[15px] font-medium text-[#202040]">
+                  Email Address
+                </label>
+
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="example@gmail.com"
+                  className="
+                    mt-3
+                    w-full
+                    h-[44px]
+                    rounded-md
+                    bg-[#EFEFEF]
+                    px-4
+                    text-[14px]
+                    placeholder:text-[#767686]
+                    outline-none
+                  "
+                />
+              </div>
+
+
+              {/* Username */}
+              <div>
+                <label className="text-[15px] font-medium text-[#202040]">
+                  Username
+                </label>
+
+                <input
+                  name="username"
+                  required
+                  placeholder="johnkevine4362"
+                  className="
+                    mt-3
+                    w-full
+                    h-[44px]
+                    rounded-md
+                    bg-[#EFEFEF]
+                    px-4
+                    text-[14px]
+                    placeholder:text-[#767686]
+                    outline-none
+                  "
+                />
+              </div>
+
+
+              {/* Password */}
+              <div>
+                <label className="text-[15px] font-medium text-[#202040]">
+                  Password
+                </label>
+
+                <div className="relative mt-3">
+
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    required
+                    className="
+                      w-full
+                      h-[44px]
+                      rounded-md
+                      bg-[#EFEFEF]
+                      px-4
+                      pr-11
+                      outline-none
+                    "
+                  />
+
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setShowPassword(!showPassword)
+                    }
+                    className="
+                      absolute
+                      right-3
+                      top-1/2
+                      -translate-y-1/2
+                      text-[#7B7B8B]
+                    "
+                  >
+                    {
+                      showPassword ? (
+                        <EyeOff size={18}/>
+                      ) : (
+                        <Eye size={18}/>
+                      )
+                    }
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              {/* Terms */}
+              <label className="flex items-start gap-2 text-[14px] text-[#202040]">
+
+                <input
+                  type="checkbox"
+                  name="terms"
+                  className="mt-1"
+                />
+
+                <span>
+                  By creating an account you agree to the{" "}
+                  <span className="text-[#605BFF] underline">
+                    terms of use
+                  </span>{" "}
+                  and our{" "}
+                  <span className="text-[#605BFF] underline">
+                    privacy policy.
+                  </span>
+                </span>
+
+              </label>
+
+
+              {/* Button */}
+              <button
+                type="submit"
+                className="
+                  w-full
+                  h-[46px]
+                  rounded-md
+                  bg-[#605BFF]
+                  text-white
+                  text-[15px]
+                  font-medium
+                  mt-2
+                  hover:bg-[#534EFF]
+                  transition
+                "
+              
+              >
+                Create account
+              </button>
+
+
+              {/* Login Link */}
+              <p
+                className="
+                  text-center
+                  text-[15px]
+                  text-[#202040]
+                  pt-3
+                "
+              >
+                Already have an account?
+                <span className="text-[#605BFF] cursor-pointer" onClick={() => navigate("/Base/signin")}>
+                  {" "}Log in
+                </span>
+              </p>
+
+            </form>
+
           </div>
+        </section>
 
-          {/* Button */}
-          <button className="w-full py-2 rounded-md text-white text-sm bg-gradient-to-r from-indigo-500 to-purple-500 hover:opacity-90">
-            Create account
-          </button>
-        </form>
 
-        {/* Footer */}
-        <p className="text-center text-sm text-gray-500 mt-5">
-          Already have an account?{" "}
-          <span className="text-indigo-500 cursor-pointer hover:underline">
-            Log in
-          </span>
-        </p>
-      </div>
-
-      {/* RIGHT PANEL */}
-      <div className="hidden md:flex flex-1 items-center justify-center bg-[#f5f6fa]">
-        
-        {/* Illustration */}
-        <div className="max-w-xl">
+        {/* Right Illustration */}
+        <section
+          className="
+            hidden 
+            lg:flex
+            flex-1
+            items-center
+            justify-center
+            bg-[#F5F5F5]
+          "
+        >
           <img
-            src="https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
-            alt="illustration"
-            className="w-full"
+            src={illustration}
+            alt="Sign Up Illustration"
+            className="
+              w-[70%]
+              max-w-[700px]
+              object-contain
+            "
           />
-        </div>
+        </section>
 
       </div>
     </div>
   );
-}
+};
+
+export default BaseSignup;
