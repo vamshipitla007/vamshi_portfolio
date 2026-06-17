@@ -7,6 +7,7 @@ import {
   Star,
   MoreHorizontal,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 type Status = "Complete" | "Pending" | "Cancel";
 
@@ -23,6 +24,7 @@ type Invoice = {
 
 export default function BaseInvoice() {
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
   const [invoices, setInvoices] = useState<Invoice[]>([
     {
@@ -195,6 +197,7 @@ export default function BaseInvoice() {
               font-medium
               flex items-center gap-2
             "
+            onClick={() => navigate("/Base/create-invoice")}
           >
             <Plus size={18} />
             Add New

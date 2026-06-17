@@ -14,7 +14,105 @@ import {
   Bell,
   Settings,
   ClipboardList,
+  Crown,
 } from "lucide-react";
+
+function UpgradeCard() {
+  return (
+    <div
+      className="
+        w-[140px]
+        h-[100px]
+        bg-[#F5F6FF]
+        rounded-[18px]
+        flex
+        flex-col
+        items-center
+        justify-center
+        relative
+        overflow-hidden
+      "
+    >
+      {/* Hanging Line */}
+      <div
+        className="
+          absolute
+          top-0
+          w-[2px]
+          h-[20px]
+          bg-[#6B63FF]
+        "
+      />
+
+      {/* Lamp */}
+      <div className="relative">
+        {/* Top Cap */}
+        <div
+          className="
+            absolute
+            left-1/2
+            -translate-x-1/2
+            -top-1
+            w-[10px]
+            h-[3px]
+            bg-[#6B63FF]
+            rounded-t-full
+          "
+        />
+
+        {/* Lamp Body */}
+        <div
+          className="
+            w-0
+            h-0
+            border-l-[38px]
+            border-r-[38px]
+            border-b-[48px]
+            border-l-transparent
+            border-r-transparent
+            border-b-[#6EA1FF]
+          "
+        />
+
+        {/* Bottom Shadow */}
+        <div
+          className="
+            absolute
+            left-1/2
+            -translate-x-1/2
+            -bottom-[3px]
+            w-[86px]
+            h-[3px]
+            rounded-full
+            bg-[#5F8EFF]
+            opacity-40
+          "
+        />
+      </div>
+
+      {/* Button */}
+      <button
+        className="
+          mt-5
+          w-[96px]
+          h-[20px]
+          rounded-[10px]
+          bg-[#5B5CF0]
+          text-white
+          text-[6px]
+          font-medium
+          flex
+          items-center
+          justify-center
+          gap-1
+        "
+      >
+        <Crown size={12} />
+        Upgrade Now
+      </button>
+    </div>
+  );
+}
 
 type Props = {
   openSidebar: boolean;
@@ -151,9 +249,8 @@ export default function Sidebar({ openSidebar, setOpenSidebar }: Props) {
           </div>
         </div>
 
-        {/* Upgrade */}
-        <div className="px-6 mb-5">
-          {/* <img src={upgrade} alt="upgrade" className="w-full rounded-xl" /> */}
+        <div className="px-4 mt-auto mt-4 mb-2 hidden lg:flex justify-center">
+          <UpgradeCard />
         </div>
 
         {/* User */}
