@@ -85,8 +85,6 @@ export default function BaseCustomerList() {
     "details",
   );
 
-  const [openAddCustomer, setOpenAddCustomer] = useState(false);
-
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -117,7 +115,6 @@ export default function BaseCustomerList() {
 
     setSelectedCustomer(newCustomer);
 
-    setOpenAddCustomer(false);
 
     setForm({
       firstName: "",
