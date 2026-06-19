@@ -101,10 +101,39 @@ export default function BaseCalendar() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F5F5F7]">
+    <div
+      className="
+    min-h-screen
+
+    bg-[#F5F5F7]
+    dark:bg-slate-950
+
+    transition-colors
+    duration-300
+  "
+    >
       {/* Header */}
-      <div className="flex flex-col lg:flex-row justify-between gap-4 mb-6">
-        <h1 className="text-[20px] md:text-[32px] font-medium text-[#11142D]">
+      <div
+        className="
+    flex
+    flex-col
+    lg:flex-row
+    justify-between
+
+    gap-4
+    mb-6
+  "
+      >
+        <h1
+          className="
+      text-[24px]
+      md:text-[32px]
+      font-semibold
+
+      text-[#11142D]
+      dark:text-white
+    "
+        >
           Calendar
         </h1>
 
@@ -114,14 +143,29 @@ export default function BaseCalendar() {
               key={item}
               onClick={() => setView(item as "Day" | "Week" | "Month" | "Year")}
               className={`
-                        h-[42px]
-                        px-6
-                        rounded-xl
-                        text-[15px]
-                        font-medium
-                        transition-all
-                        ${view === item ? "bg-[#5B5CF0] text-white" : "bg-white text-[#555577]"}
-                    `}
+          h-[42px]
+          px-6
+          rounded-xl
+          text-[15px]
+          font-medium
+          transition-all
+
+          ${
+            view === item
+              ? "bg-[#5B5CF0] text-white"
+              : `
+                bg-white
+                dark:bg-gray-900
+
+                text-[#555577]
+                dark:text-gray-300
+
+                border
+                border-[#ECECF5]
+                dark:border-gray-800
+              `
+          }
+        `}
             >
               {item}
             </button>
@@ -131,34 +175,110 @@ export default function BaseCalendar() {
 
       <div className="grid grid-cols-1 xl:grid-cols-[270px_1fr] gap-6">
         {/* LEFT PANEL */}
-        <div className="bg-white rounded-2xl p-6">
+        <div
+          className="
+          bg-white
+          dark:bg-gray-900
+
+          border
+          border-[#ECECF5]
+          dark:border-gray-800
+
+          rounded-2xl
+          p-5
+          sm:p-6
+
+          transition-all
+          duration-300
+        "
+        >
+          {/* Create Schedule */}
           <button
             className="
-              w-full h-[48px]
-              bg-[#5B5CF0]
-              rounded-xl
-              text-white
-              text-[15px]
-              font-medium
-              flex items-center justify-center gap-2
-            "
+            w-full
+            h-[48px]
+
+            bg-[#5B5CF0]
+            hover:bg-[#4F50E8]
+
+            dark:bg-[#7C7AFF]
+            dark:hover:bg-[#6B63FF]
+
+            rounded-xl
+
+            text-white
+            text-[15px]
+            font-medium
+
+            flex
+            items-center
+            justify-center
+            gap-2
+
+            transition-all
+          "
           >
             <Plus size={18} />
             Create Schedule
           </button>
 
           {/* Mini Calendar */}
-          <div className="mt-6 border border-[#ECECF5] rounded-xl p-4">
-            <div className="flex justify-between text-[14px] text-[#555577]">
+          <div
+            className="
+            mt-6
+
+            border
+            border-[#ECECF5]
+            dark:border-gray-800
+
+            rounded-xl
+            p-4
+          "
+          >
+            <div
+              className="
+              flex
+              justify-between
+              items-center
+
+              text-[14px]
+
+              text-[#555577]
+              dark:text-gray-300
+            "
+            >
               <span>December 2, 2021</span>
 
-              <div className="flex gap-2">
+              <div
+                className="
+                flex
+                gap-2
+
+                text-[#8A8AA0]
+                dark:text-gray-400
+              "
+              >
                 <ChevronLeft size={16} />
                 <ChevronRight size={16} />
               </div>
             </div>
 
-            <div className="grid grid-cols-7 mt-4 text-center text-[13px] text-[#666688] gap-y-3">
+            <div
+              className="
+              grid
+              grid-cols-7
+
+              mt-4
+
+              text-center
+              text-[13px]
+
+              text-[#666688]
+              dark:text-gray-400
+
+              gap-y-3
+            "
+            >
               {["S", "M", "T", "W", "T", "F", "S"].map((day) => (
                 <span key={day}>{day}</span>
               ))}
@@ -167,11 +287,25 @@ export default function BaseCalendar() {
                 <div
                   key={i}
                   className={`
-                      w-7 h-7 mx-auto rounded-full
-                      flex items-center justify-center
-                      text-[13px]
-                      ${i === 10 ? "bg-[#5B5CF0] text-white" : "text-[#555577]"}
-                    `}
+                  w-8
+                  h-8
+
+                  mx-auto
+
+                  rounded-full
+
+                  flex
+                  items-center
+                  justify-center
+
+                  text-[13px]
+
+                  ${
+                    i === 10
+                      ? "bg-[#5B5CF0] text-white"
+                      : "text-[#555577] dark:text-gray-300"
+                  }
+                `}
                 >
                   {i + 1 <= 31 ? i + 1 : ""}
                 </div>
@@ -181,56 +315,222 @@ export default function BaseCalendar() {
 
           {/* People */}
           <div className="mt-6">
-            <h2 className="text-[18px] font-medium text-[#11142D]">People</h2>
+            <h2
+              className="
+              text-[18px]
+              font-semibold
 
+              text-[#11142D]
+              dark:text-white
+            "
+            >
+              People
+            </h2>
+
+            {/* Search */}
             <div className="relative mt-4">
               <Search
-                className="absolute left-3 top-3 text-[#8A8AA0]"
+                className="
+                absolute
+                left-3
+                top-3
+
+                text-[#8A8AA0]
+                dark:text-gray-400
+              "
                 size={16}
               />
 
               <input
                 placeholder="Search for People"
-                className="w-full h-[42px] rounded-xl bg-[#F5F5F7] pl-10 text-[14px] outline-none"
+                className="
+                w-full
+                h-[42px]
+
+                rounded-xl
+
+                bg-[#F5F5F7]
+                dark:bg-gray-800
+
+                border
+                border-transparent
+                dark:border-gray-700
+
+                pl-10
+
+                text-[14px]
+
+                text-[#11142D]
+                dark:text-white
+
+                placeholder:text-[#8A8AA0]
+                dark:placeholder:text-gray-500
+
+                outline-none
+
+                focus:border-[#5B5CF0]
+              "
               />
             </div>
 
-            <div className="mt-4 space-y-4">
+            {/* People List */}
+            <div className="mt-4 space-y-3">
               {people.map((person) => (
-                <div key={person.name} className="flex items-center gap-3">
+                <div
+                  key={person.name}
+                  className="
+                  flex
+                  items-center
+                  gap-3
+
+                  p-2
+
+                  rounded-xl
+
+                  hover:bg-[#F8F8FB]
+                  dark:hover:bg-gray-800
+
+                  transition-all
+                "
+                >
                   <img
                     src={person.image}
-                    className="w-10 h-10 rounded-full object-cover"
+                    alt={person.name}
+                    className="
+                    w-10
+                    h-10
+
+                    rounded-full
+                    object-cover
+
+                    border
+                    border-[#ECECF5]
+                    dark:border-gray-700
+                  "
                   />
 
-                  <div>
-                    <p className="text-[14px] font-medium text-[#11142D]">
+                  <div className="flex-1 min-w-0">
+                    <p
+                      className="
+                      text-[14px]
+                      font-medium
+
+                      text-[#11142D]
+                      dark:text-white
+
+                      truncate
+                    "
+                    >
                       {person.name}
                     </p>
 
-                    <p className="text-[12px] text-[#8A8AA0]">{person.email}</p>
+                    <p
+                      className="
+                      text-[12px]
+
+                      text-[#8A8AA0]
+                      dark:text-gray-400
+
+                      truncate
+                    "
+                    >
+                      {person.email}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <button className="w-full mt-8 h-[46px] border rounded-xl text-[#5B5CF0] text-[15px]">
+          {/* My Schedule */}
+          <button
+            className="
+            w-full
+            mt-8
+            h-[46px]
+
+            border
+            border-[#E5E5EF]
+            dark:border-gray-700
+
+            rounded-xl
+
+            text-[#5B5CF0]
+            dark:text-[#7C7AFF]
+
+            text-[15px]
+            font-medium
+
+            hover:bg-[#F8F8FB]
+            dark:hover:bg-gray-800
+
+            transition-all
+          "
+          >
             My Schedule
           </button>
         </div>
 
         {/* RIGHT CALENDAR */}
-        <div className="bg-white rounded-2xl overflow-hidden">
+        {/* RIGHT CALENDAR */}
+        <div
+          className="
+    bg-white
+    dark:bg-gray-900
+
+    border
+    border-[#ECECF5]
+    dark:border-gray-800
+
+    rounded-2xl
+    overflow-hidden
+
+    transition-all
+    duration-300
+  "
+        >
           {/* Header */}
-          <div className="h-[54px] border-b px-6 flex justify-between items-center">
-            <h2 className="text-[20px] font-medium text-[#11142D]">
+          <div
+            className="
+      h-[60px]
+
+      border-b
+      border-[#ECECF5]
+      dark:border-gray-800
+
+      px-4
+      md:px-6
+
+      flex
+      justify-between
+      items-center
+    "
+          >
+            <h2
+              className="
+        text-[18px]
+        md:text-[20px]
+        font-semibold
+
+        text-[#11142D]
+        dark:text-white
+      "
+            >
               December 2, 2021
             </h2>
 
-            <div className="flex gap-3 text-[#8A8AA0]">
-              <ChevronLeft size={18} />
-              <ChevronRight size={18} />
+            <div
+              className="
+        flex
+        gap-3
+
+        text-[#8A8AA0]
+        dark:text-gray-400
+      "
+            >
+              <ChevronLeft size={18} className="cursor-pointer" />
+
+              <ChevronRight size={18} className="cursor-pointer" />
             </div>
           </div>
 
@@ -238,17 +538,36 @@ export default function BaseCalendar() {
           {view === "Month" && (
             <>
               {/* Week Header */}
-              <div className="grid grid-cols-7 border-b">
+              <div
+                className="
+          grid
+          grid-cols-7
+
+          border-b
+          border-[#ECECF5]
+          dark:border-gray-800
+        "
+              >
                 {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(
                   (day) => (
                     <div
                       key={day}
                       className="
-          h-[70px]
-          flex items-center justify-center
-          text-[18px]
-          text-[#11142D]
-        "
+              h-[60px]
+              md:h-[70px]
+
+              flex
+              items-center
+              justify-center
+
+              text-[13px]
+              md:text-[16px]
+
+              font-medium
+
+              text-[#11142D]
+              dark:text-white
+            "
                     >
                       {day}
                     </div>
@@ -265,30 +584,54 @@ export default function BaseCalendar() {
                     <div
                       key={index}
                       className="
-            h-[130px]
-            border-r border-b
-            border-[#ECECF5]
-            p-3
-          "
+                min-h-[90px]
+                md:min-h-[130px]
+
+                border-r
+                border-b
+
+                border-[#ECECF5]
+                dark:border-gray-800
+
+                p-2
+                md:p-3
+              "
                     >
-                      {/* Date */}
-                      <div className="text-center text-[22px] text-[#444466]">
+                      <div
+                        className="
+                  text-center
+
+                  text-[16px]
+                  md:text-[22px]
+
+                  text-[#444466]
+                  dark:text-gray-300
+                "
+                      >
                         {day}
                       </div>
 
-                      {/* Events */}
                       <div className="mt-2 space-y-1">
                         {dayEvents.map((event) => (
                           <div
                             key={event.title}
                             className={`
-                  ${event.color}
-                  text-white
-                  text-[11px]
-                  rounded-sm
-                  text-center
-                  py-1
-                `}
+                      ${event.color}
+
+                      text-white
+
+                      text-[9px]
+                      md:text-[11px]
+
+                      rounded-md
+
+                      text-center
+
+                      py-1
+                      px-1
+
+                      truncate
+                    `}
                           >
                             {event.title}
                           </div>
@@ -303,7 +646,7 @@ export default function BaseCalendar() {
 
           {/* DAY VIEW */}
           {view === "Day" && (
-            <div className="p-6">
+            <div className="p-4 md:p-6">
               {[
                 "09.00 AM",
                 "10.00 AM",
@@ -326,19 +669,28 @@ export default function BaseCalendar() {
                   <div
                     key={time}
                     className="
-              h-[48px]
+              h-[52px]
+
               border-b
               border-[#ECECF5]
-              flex items-center
-              gap-6
+              dark:border-gray-800
+
+              flex
+              items-center
+
+              gap-3
+              md:gap-6
             "
                   >
                     <span
                       className="
-              w-[80px]
-              text-[12px]
-              text-[#8A8AA0]
-            "
+                w-[80px]
+
+                text-[12px]
+
+                text-[#8A8AA0]
+                dark:text-gray-500
+              "
                     >
                       {time}
                     </span>
@@ -346,13 +698,22 @@ export default function BaseCalendar() {
                     {event && (
                       <div
                         className={`
-                  px-8
-                  h-[26px]
-                  rounded-md
-                  text-white
-                  text-[12px]
-                  flex items-center
                   ${event.color}
+
+                  px-4
+                  md:px-8
+
+                  h-[28px]
+
+                  rounded-md
+
+                  text-white
+
+                  text-[11px]
+                  md:text-[12px]
+
+                  flex
+                  items-center
                 `}
                       >
                         {event.title}
@@ -368,12 +729,17 @@ export default function BaseCalendar() {
           {view === "Week" && (
             <div
               className="
-      h-[600px]
-      flex items-center
-      justify-center
-      text-[#8A8AA0]
-      text-[18px]
-    "
+        h-[600px]
+
+        flex
+        items-center
+        justify-center
+
+        text-[18px]
+
+        text-[#8A8AA0]
+        dark:text-gray-400
+      "
             >
               Week Calendar UI
             </div>
@@ -383,35 +749,46 @@ export default function BaseCalendar() {
           {view === "Year" && (
             <div
               className="
-      p-6
-      grid
-      grid-cols-1
-      md:grid-cols-2
-      xl:grid-cols-3
-      gap-6
-    "
+        p-4
+        md:p-6
+
+        grid
+        grid-cols-1
+        md:grid-cols-2
+        xl:grid-cols-3
+
+        gap-6
+      "
             >
               {yearMonths.map((month) => (
                 <div key={month}>
                   <h3
                     className="
-            text-[14px]
-            font-medium
-            mb-3
-            text-[#11142D]
-          "
+              text-[14px]
+              font-semibold
+              mb-3
+
+              text-[#11142D]
+              dark:text-white
+            "
                   >
                     {month}
                   </h3>
 
                   <div
                     className="
-            grid grid-cols-7
-            gap-2
-            text-center
-            text-[11px]
-            text-[#555577]
-          "
+              grid
+              grid-cols-7
+
+              gap-2
+
+              text-center
+
+              text-[11px]
+
+              text-[#555577]
+              dark:text-gray-400
+            "
                   >
                     {Array.from({
                       length: 35,
@@ -419,10 +796,15 @@ export default function BaseCalendar() {
                       <div
                         key={i}
                         className={`
-                  h-6 w-6
-                  flex items-center
+                  h-6
+                  w-6
+
+                  flex
+                  items-center
                   justify-center
+
                   rounded-full
+
                   ${
                     month === "December 2021" && i === 30
                       ? "bg-[#5B5CF0] text-white"

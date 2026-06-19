@@ -223,28 +223,83 @@ export default function BaseTaskPreview() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5F7]">
-      {/* HEADER */}
+    <div
+      className="
+    min-h-screen
 
-      <div className="flex flex-col lg:flex-row justify-between gap-4 mb-8">
-        <h1 className="text-[20px] md:text-[34px] font-medium text-[#11142D]">
+    bg-[#F5F5F7]
+    dark:bg-slate-950
+
+    transition-colors
+    duration-300
+  "
+    >
+      {/* Header */}
+      <div
+        className="
+    flex
+    flex-col
+    lg:flex-row
+
+    justify-between
+    lg:items-center
+
+    gap-4
+
+    mb-8
+  "
+      >
+        <h1
+          className="
+      text-[24px]
+      md:text-[34px]
+
+      font-semibold
+
+      text-[#11142D]
+      dark:text-white
+
+      transition-colors
+    "
+        >
           Task Preview
         </h1>
 
         <button
           onClick={handleAddTask}
           className="
-            h-[48px]
-            px-6
-            bg-[#5B5CF0]
-            rounded-xl
-            text-white
-            text-[15px]
-            font-medium
-            flex
-            items-center
-            gap-2
-          "
+      h-[48px]
+
+      px-6
+
+      bg-[#5B5CF0]
+      hover:bg-[#4E4FE8]
+
+      dark:bg-[#7C7AFF]
+      dark:hover:bg-[#6B63FF]
+
+      rounded-xl
+
+      text-white
+
+      text-[15px]
+      font-medium
+
+      flex
+      items-center
+      justify-center
+
+      gap-2
+
+      shadow-sm
+      hover:shadow-md
+
+      transition-all
+      duration-300
+
+      w-full
+      sm:w-auto
+    "
         >
           <Plus size={18} />
           Add Task
@@ -253,24 +308,75 @@ export default function BaseTaskPreview() {
 
       {/* TABS + SEARCH */}
 
-      <div className="flex flex-col lg:flex-row justify-between gap-4 mb-8">
-        <div className="flex bg-white rounded-xl p-1 w-fit">
+      <div
+        className="
+          flex
+          flex-col
+          xl:flex-row
+
+          justify-between
+          xl:items-center
+
+          gap-4
+
+          mb-8
+        "
+      >
+        {/* Tabs */}
+        <div
+          className="
+            flex
+
+            bg-white
+            dark:bg-gray-900
+
+            border
+            border-[#ECECF5]
+            dark:border-gray-800
+
+            rounded-xl
+
+            p-1
+
+            w-fit
+
+            transition-all
+            duration-300
+          "
+        >
           {["list", "board", "timeline"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab as "list" | "board" | "timeline")}
               className={`
                 h-[42px]
-                px-6
+
+                px-4
+                md:px-6
+
                 rounded-lg
-                text-[15px]
+
+                text-[14px]
+                md:text-[15px]
+
                 capitalize
+
                 transition-all
 
                 ${
                   activeTab === tab
-                    ? "bg-[#5B5CF0] text-white"
-                    : "text-[#666688]"
+                    ? `
+                      bg-[#5B5CF0]
+                      text-white
+                      shadow-sm
+                    `
+                    : `
+                      text-[#666688]
+                      dark:text-gray-400
+
+                      hover:bg-[#F8F8FA]
+                      dark:hover:bg-gray-800
+                    `
                 }
               `}
             >
@@ -279,7 +385,17 @@ export default function BaseTaskPreview() {
           ))}
         </div>
 
-        <div className="flex gap-3">
+        {/* Search & Filter */}
+        <div
+          className="
+            flex
+            flex-col
+            sm:flex-row
+
+            gap-3
+          "
+        >
+          {/* Search */}
           <div className="relative">
             <Search
               size={18}
@@ -288,7 +404,9 @@ export default function BaseTaskPreview() {
                 left-3
                 top-1/2
                 -translate-y-1/2
+
                 text-[#8A8AA0]
+                dark:text-gray-400
               "
             />
 
@@ -297,26 +415,65 @@ export default function BaseTaskPreview() {
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search"
               className="
-                w-[260px]
+                w-full
+                sm:w-[260px]
+
                 h-[48px]
+
                 rounded-xl
+
                 bg-white
+                dark:bg-gray-900
+
+                border
+                border-[#ECECF5]
+                dark:border-gray-800
+
                 pl-10
+                pr-4
+
+                text-[14px]
+
+                text-[#11142D]
+                dark:text-white
+
+                placeholder:text-[#8A8AA0]
+                dark:placeholder:text-gray-500
+
                 outline-none
+
+                focus:border-[#5B5CF0]
+
+                transition-all
               "
             />
           </div>
 
+          {/* Filter */}
           <button
             className="
               w-[48px]
               h-[48px]
-              bg-[#5B5CF0]
+
               rounded-xl
+
+              bg-[#5B5CF0]
+              hover:bg-[#4E4FE8]
+
+              dark:bg-[#7C7AFF]
+              dark:hover:bg-[#6B63FF]
+
               flex
               items-center
               justify-center
+
               text-white
+
+              shadow-sm
+              hover:shadow-md
+
+              transition-all
+              duration-300
             "
           >
             <Filter size={18} />
@@ -326,8 +483,6 @@ export default function BaseTaskPreview() {
 
       {/* MODAL */}
 
-
-
       {/* LIST VIEW / BOARD VIEW / TIMELINE VIEW */}
       {/* continues in Part 2 */}
 
@@ -336,31 +491,67 @@ export default function BaseTaskPreview() {
           {/* Overlay */}
           <div
             onClick={() => setOpenModal(false)}
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+            className="
+        absolute
+        inset-0
+        bg-black/50
+        backdrop-blur-sm
+      "
           />
 
           {/* Modal */}
           <div
             className="
         relative
+
         w-full
         max-w-[720px]
-        bg-white
-        rounded-3xl
-        p-6 md:p-8
-        shadow-xl
-        overflow-y-auto
+
         max-h-[90vh]
+        overflow-y-auto
+
+        rounded-3xl
+
+        bg-white
+        dark:bg-gray-900
+
+        border
+        border-[#ECECF5]
+        dark:border-gray-800
+
+        p-6
+        md:p-8
+
+        shadow-2xl
+
+        transition-all
       "
           >
             {/* Header */}
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-start justify-between mb-8">
               <div>
-                <h2 className="text-[28px] font-semibold text-[#11142D]">
+                <h2
+                  className="
+              text-[24px]
+              md:text-[28px]
+              font-semibold
+
+              text-[#11142D]
+              dark:text-white
+            "
+                >
                   {editingTask ? "Edit Task" : "Create New Task"}
                 </h2>
 
-                <p className="text-[14px] text-[#8A8AA0] mt-1">
+                <p
+                  className="
+              text-[14px]
+              mt-1
+
+              text-[#8A8AA0]
+              dark:text-gray-400
+            "
+                >
                   Fill task information below
                 </p>
               </div>
@@ -368,10 +559,25 @@ export default function BaseTaskPreview() {
               <button
                 onClick={() => setOpenModal(false)}
                 className="
-            w-10 h-10
+            w-10
+            h-10
+
             rounded-full
+
             bg-[#F5F5F7]
-            flex items-center justify-center
+            dark:bg-gray-800
+
+            text-[#666688]
+            dark:text-gray-300
+
+            flex
+            items-center
+            justify-center
+
+            hover:bg-[#ECECF5]
+            dark:hover:bg-gray-700
+
+            transition-all
           "
               >
                 <X size={18} />
@@ -382,7 +588,18 @@ export default function BaseTaskPreview() {
             <div className="grid md:grid-cols-2 gap-5">
               {/* Task Name */}
               <div className="md:col-span-2">
-                <label className="block text-[14px] font-medium text-[#11142D] mb-2">
+                <label
+                  className="
+              block
+              mb-2
+
+              text-[14px]
+              font-medium
+
+              text-[#11142D]
+              dark:text-white
+            "
+                >
                   Task Name
                 </label>
 
@@ -398,18 +615,45 @@ export default function BaseTaskPreview() {
                   className="
               w-full
               h-[52px]
+
               px-4
+
               rounded-xl
+
               bg-[#F5F5F7]
-              outline-none
+              dark:bg-gray-800
+
+              border
+              border-transparent
+              dark:border-gray-700
+
               text-[#11142D]
+              dark:text-white
+
+              placeholder:text-[#8A8AA0]
+              dark:placeholder:text-gray-500
+
+              outline-none
+
+              focus:border-[#5B5CF0]
             "
                 />
               </div>
 
               {/* Status */}
               <div>
-                <label className="block text-[14px] font-medium text-[#11142D] mb-2">
+                <label
+                  className="
+              block
+              mb-2
+
+              text-[14px]
+              font-medium
+
+              text-[#11142D]
+              dark:text-white
+            "
+                >
                   Status
                 </label>
 
@@ -424,9 +668,21 @@ export default function BaseTaskPreview() {
                   className="
               w-full
               h-[52px]
+
               px-4
+
               rounded-xl
+
               bg-[#F5F5F7]
+              dark:bg-gray-800
+
+              text-[#11142D]
+              dark:text-white
+
+              border
+              border-transparent
+              dark:border-gray-700
+
               outline-none
             "
                 >
@@ -438,7 +694,18 @@ export default function BaseTaskPreview() {
 
               {/* Priority */}
               <div>
-                <label className="block text-[14px] font-medium text-[#11142D] mb-2">
+                <label
+                  className="
+              block
+              mb-2
+
+              text-[14px]
+              font-medium
+
+              text-[#11142D]
+              dark:text-white
+            "
+                >
                   Priority
                 </label>
 
@@ -453,9 +720,21 @@ export default function BaseTaskPreview() {
                   className="
               w-full
               h-[52px]
+
               px-4
+
               rounded-xl
+
               bg-[#F5F5F7]
+              dark:bg-gray-800
+
+              text-[#11142D]
+              dark:text-white
+
+              border
+              border-transparent
+              dark:border-gray-700
+
               outline-none
             "
                 >
@@ -467,7 +746,18 @@ export default function BaseTaskPreview() {
 
               {/* Start Date */}
               <div>
-                <label className="block text-[14px] font-medium text-[#11142D] mb-2">
+                <label
+                  className="
+              block
+              mb-2
+
+              text-[14px]
+              font-medium
+
+              text-[#11142D]
+              dark:text-white
+            "
+                >
                   Start Date
                 </label>
 
@@ -483,9 +773,21 @@ export default function BaseTaskPreview() {
                   className="
               w-full
               h-[52px]
+
               px-4
+
               rounded-xl
+
               bg-[#F5F5F7]
+              dark:bg-gray-800
+
+              text-[#11142D]
+              dark:text-white
+
+              border
+              border-transparent
+              dark:border-gray-700
+
               outline-none
             "
                 />
@@ -493,7 +795,18 @@ export default function BaseTaskPreview() {
 
               {/* End Date */}
               <div>
-                <label className="block text-[14px] font-medium text-[#11142D] mb-2">
+                <label
+                  className="
+              block
+              mb-2
+
+              text-[14px]
+              font-medium
+
+              text-[#11142D]
+              dark:text-white
+            "
+                >
                   End Date
                 </label>
 
@@ -509,9 +822,21 @@ export default function BaseTaskPreview() {
                   className="
               w-full
               h-[52px]
+
               px-4
+
               rounded-xl
+
               bg-[#F5F5F7]
+              dark:bg-gray-800
+
+              text-[#11142D]
+              dark:text-white
+
+              border
+              border-transparent
+              dark:border-gray-700
+
               outline-none
             "
                 />
@@ -519,7 +844,18 @@ export default function BaseTaskPreview() {
 
               {/* Column */}
               <div>
-                <label className="block text-[14px] font-medium text-[#11142D] mb-2">
+                <label
+                  className="
+              block
+              mb-2
+
+              text-[14px]
+              font-medium
+
+              text-[#11142D]
+              dark:text-white
+            "
+                >
                   Board Column
                 </label>
 
@@ -538,9 +874,21 @@ export default function BaseTaskPreview() {
                   className="
               w-full
               h-[52px]
+
               px-4
+
               rounded-xl
+
               bg-[#F5F5F7]
+              dark:bg-gray-800
+
+              text-[#11142D]
+              dark:text-white
+
+              border
+              border-transparent
+              dark:border-gray-700
+
               outline-none
             "
                 >
@@ -553,7 +901,18 @@ export default function BaseTaskPreview() {
 
               {/* Description */}
               <div className="md:col-span-2">
-                <label className="block text-[14px] font-medium text-[#11142D] mb-2">
+                <label
+                  className="
+              block
+              mb-2
+
+              text-[14px]
+              font-medium
+
+              text-[#11142D]
+              dark:text-white
+            "
+                >
                   Description
                 </label>
 
@@ -569,9 +928,24 @@ export default function BaseTaskPreview() {
                   placeholder="Task description..."
                   className="
               w-full
+
               rounded-xl
+
               bg-[#F5F5F7]
+              dark:bg-gray-800
+
+              text-[#11142D]
+              dark:text-white
+
+              placeholder:text-[#8A8AA0]
+              dark:placeholder:text-gray-500
+
+              border
+              border-transparent
+              dark:border-gray-700
+
               p-4
+
               resize-none
               outline-none
             "
@@ -580,17 +954,28 @@ export default function BaseTaskPreview() {
             </div>
 
             {/* Footer */}
-            <div className="flex gap-4 mt-8">
+            <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <button
                 onClick={() => setOpenModal(false)}
                 className="
             flex-1
             h-[52px]
+
+            rounded-xl
+
             border
             border-[#E5E7EB]
-            rounded-xl
+            dark:border-gray-700
+
+            bg-white
+            dark:bg-gray-800
+
             text-[#666688]
+            dark:text-gray-300
+
             font-medium
+
+            transition-all
           "
               >
                 Cancel
@@ -601,10 +986,20 @@ export default function BaseTaskPreview() {
                 className="
             flex-1
             h-[52px]
+
             rounded-xl
+
             bg-[#5B5CF0]
+            hover:bg-[#4E4FE8]
+
+            dark:bg-[#7C7AFF]
+            dark:hover:bg-[#6B63FF]
+
             text-white
+
             font-medium
+
+            transition-all
           "
               >
                 {editingTask ? "Update Task" : "Create Task"}
@@ -633,52 +1028,85 @@ export default function BaseTaskPreview() {
             <div
               key={section.title}
               className="
-          bg-white
-          rounded-2xl
-          p-6
-          overflow-x-auto
-        "
+                bg-white
+                dark:bg-gray-900
+
+                border
+                border-transparent
+                dark:border-gray-800
+
+                rounded-2xl
+                p-4
+                md:p-6
+
+                overflow-x-auto
+
+                transition-all
+              "
             >
-              <div className="flex justify-between mb-6">
+              {/* Header */}
+              <div className="flex items-center justify-between mb-6">
                 <h2
                   className="
-              text-[24px]
-              font-medium
-              text-[#11142D]
-            "
+                    text-[20px]
+                    md:text-[24px]
+                    font-medium
+
+                    text-[#11142D]
+                    dark:text-white
+                  "
                 >
                   {section.title}
                 </h2>
 
                 <button
                   className="
-              text-[#5B5CF0]
-              text-[15px]
-            "
+                    text-[14px]
+                    md:text-[15px]
+
+                    text-[#5B5CF0]
+                    dark:text-[#8B8CFF]
+
+                    hover:underline
+                  "
                 >
                   See More
                 </button>
               </div>
 
+              {/* Table */}
               <table className="w-full min-w-[900px]">
                 <thead>
                   <tr
                     className="
-                border-b
-                border-[#ECECF5]
-              "
+                      border-b
+                      border-[#ECECF5]
+                      dark:border-gray-800
+                    "
                   >
-                    <th className="py-4 text-left">Task Name</th>
+                    <th className="py-4 text-left text-[#8A8AA0] dark:text-gray-400 font-medium">
+                      Task Name
+                    </th>
 
-                    <th className="text-left">Start Date</th>
+                    <th className="text-left text-[#8A8AA0] dark:text-gray-400 font-medium">
+                      Start Date
+                    </th>
 
-                    <th className="text-left">End Date</th>
+                    <th className="text-left text-[#8A8AA0] dark:text-gray-400 font-medium">
+                      End Date
+                    </th>
 
-                    <th className="text-left">Member</th>
+                    <th className="text-left text-[#8A8AA0] dark:text-gray-400 font-medium">
+                      Member
+                    </th>
 
-                    <th className="text-left">Status</th>
+                    <th className="text-left text-[#8A8AA0] dark:text-gray-400 font-medium">
+                      Status
+                    </th>
 
-                    <th className="text-right">Actions</th>
+                    <th className="text-right text-[#8A8AA0] dark:text-gray-400 font-medium">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
 
@@ -689,39 +1117,50 @@ export default function BaseTaskPreview() {
                       <tr
                         key={task.id}
                         className="
-                    border-b
-                    border-[#F3F3F8]
-                  "
+                          border-b
+                          border-[#F3F3F8]
+                          dark:border-gray-800
+
+                          hover:bg-[#FAFAFC]
+                          dark:hover:bg-gray-800/50
+
+                          transition-all
+                        "
                       >
+                        {/* Task */}
                         <td className="py-5">
                           <div className="flex items-center gap-3">
                             <img
                               src={task.image}
-                              alt=""
+                              alt={task.title}
                               className="
-                          w-10
-                          h-10
-                          rounded-full
-                          object-cover
-                        "
+                                w-10
+                                h-10
+                                rounded-full
+                                object-cover
+                              "
                             />
 
                             <div>
                               <p
                                 className="
-                            text-[15px]
-                            font-medium
-                            text-[#11142D]
-                          "
+                                  text-[15px]
+                                  font-medium
+
+                                  text-[#11142D]
+                                  dark:text-white
+                                "
                               >
                                 {task.title}
                               </p>
 
                               <p
                                 className="
-                            text-[12px]
-                            text-[#8A8AA0]
-                          "
+                                  text-[12px]
+
+                                  text-[#8A8AA0]
+                                  dark:text-gray-400
+                                "
                               >
                                 {task.priority}
                               </p>
@@ -729,40 +1168,80 @@ export default function BaseTaskPreview() {
                           </div>
                         </td>
 
-                        <td>{task.startDate}</td>
+                        {/* Start Date */}
+                        <td
+                          className="
+                            text-[#555577]
+                            dark:text-gray-300
+                          "
+                        >
+                          {task.startDate}
+                        </td>
 
-                        <td className="text-[#FF5A5A]">{task.endDate}</td>
+                        {/* End Date */}
+                        <td
+                          className="
+                            text-[#FF5A5A]
+                            dark:text-red-400
+                          "
+                        >
+                          {task.endDate}
+                        </td>
 
-                        <td>{task.members.length} Members</td>
+                        {/* Members */}
+                        <td
+                          className="
+                            text-[#555577]
+                            dark:text-gray-300
+                          "
+                        >
+                          {task.members.length} Members
+                        </td>
 
+                        {/* Status */}
                         <td>
                           <span
                             className={`
-                        px-4
-                        py-2
-                        rounded-lg
-                        text-[13px]
-                        ${getStatusColor(task.status)}
-                      `}
+                              px-4
+                              py-2
+
+                              rounded-lg
+
+                              text-[13px]
+                              font-medium
+
+                              ${getStatusColor(task.status)}
+                            `}
                           >
                             {task.status}
                           </span>
                         </td>
 
+                        {/* Actions */}
                         <td>
                           <div className="flex justify-end gap-3">
                             <button
                               onClick={() => handleEditTask(task)}
                               className="
-                          w-9
-                          h-9
-                          rounded-full
-                          bg-[#F5F3FF]
-                          text-[#5B5CF0]
-                          flex
-                          items-center
-                          justify-center
-                        "
+                                w-9
+                                h-9
+
+                                rounded-full
+
+                                bg-[#F5F3FF]
+                                dark:bg-indigo-900/30
+
+                                text-[#5B5CF0]
+                                dark:text-indigo-400
+
+                                flex
+                                items-center
+                                justify-center
+
+                                hover:scale-105
+
+                                transition-all
+                              "
                             >
                               <Edit size={16} />
                             </button>
@@ -770,15 +1249,25 @@ export default function BaseTaskPreview() {
                             <button
                               onClick={() => handleDeleteTask(task.id)}
                               className="
-                          w-9
-                          h-9
-                          rounded-full
-                          bg-[#FFF1F1]
-                          text-[#FF5A5A]
-                          flex
-                          items-center
-                          justify-center
-                        "
+                                w-9
+                                h-9
+
+                                rounded-full
+
+                                bg-[#FFF1F1]
+                                dark:bg-red-900/20
+
+                                text-[#FF5A5A]
+                                dark:text-red-400
+
+                                flex
+                                items-center
+                                justify-center
+
+                                hover:scale-105
+
+                                transition-all
+                              "
                             >
                               <Trash2 size={16} />
                             </button>
@@ -800,16 +1289,16 @@ export default function BaseTaskPreview() {
       {activeTab === "board" && (
         <div
           className="
-      grid
-      grid-cols-1
-      md:grid-cols-2
-      xl:grid-cols-4
-      gap-6
-    "
+            grid
+            grid-cols-1
+            md:grid-cols-2
+            xl:grid-cols-4
+            gap-6
+          "
         >
           {[
             {
-              title: "ToDo",
+              title: "To Do",
               key: "todo",
             },
             {
@@ -826,13 +1315,18 @@ export default function BaseTaskPreview() {
             },
           ].map((column) => (
             <div key={column.key}>
+              {/* Column Title */}
               <h2
                 className="
-            text-[28px]
-            font-medium
-            text-[#4B4B72]
-            mb-6
-          "
+                  text-[24px]
+                  lg:text-[28px]
+                  font-medium
+
+                  text-[#4B4B72]
+                  dark:text-white
+
+                  mb-6
+                "
               >
                 {column.title}
               </h2>
@@ -844,107 +1338,138 @@ export default function BaseTaskPreview() {
                     <div
                       key={task.id}
                       className="
-                  bg-white
-                  rounded-2xl
-                  p-5
-                  shadow-sm
-                "
+                        bg-white
+                        dark:bg-gray-900
+
+                        border
+                        border-transparent
+                        dark:border-gray-800
+
+                        rounded-2xl
+
+                        p-5
+
+                        shadow-sm
+                        dark:shadow-none
+
+                        transition-all
+                      "
                     >
                       {/* Top */}
-
                       <div className="flex justify-between items-center">
                         <div className="flex items-center gap-3">
                           <div
                             className={`
-                        w-5 h-5 rounded-full border-2
-                        ${
-                          task.status === "Done"
-                            ? "bg-[#5B5CF0] border-[#5B5CF0]"
-                            : "border-[#A6A6BA]"
-                        }
-                      `}
+                              w-5
+                              h-5
+                              rounded-full
+                              border-2
+
+                              ${
+                                task.status === "Done"
+                                  ? "bg-[#5B5CF0] border-[#5B5CF0]"
+                                  : "border-[#A6A6BA] dark:border-gray-600"
+                              }
+                            `}
                           />
 
                           <h3
                             className="
-                        text-[18px]
-                        font-medium
-                        text-[#11142D]
-                      "
+                              text-[18px]
+                              font-medium
+
+                              text-[#11142D]
+                              dark:text-white
+                            "
                           >
                             {task.title}
                           </h3>
                         </div>
 
-                        <MoreHorizontal size={18} className="text-[#A5A5BC]" />
+                        <MoreHorizontal
+                          size={18}
+                          className="
+                            text-[#A5A5BC]
+                            dark:text-gray-500
+                          "
+                        />
                       </div>
 
                       {/* Tags */}
-
                       <div className="flex gap-3 mt-5 flex-wrap">
                         <span
                           className={`
-                      px-5
-                      py-2
-                      rounded-full
-                      text-[13px]
-                      font-medium
-                      ${getPriorityColor(task.priority)}
-                    `}
+                            px-5
+                            py-2
+
+                            rounded-full
+
+                            text-[13px]
+                            font-medium
+
+                            ${getPriorityColor(task.priority)}
+                          `}
                         >
                           {task.priority}
                         </span>
 
                         <span
                           className="
-                      px-5
-                      py-2
-                      rounded-full
-                      bg-[#F4C953]
-                      text-[#11142D]
-                      text-[13px]
-                      font-medium
-                    "
+                            px-5
+                            py-2
+
+                            rounded-full
+
+                            bg-[#F4C953]
+                            dark:bg-yellow-500/20
+
+                            text-[#11142D]
+                            dark:text-yellow-400
+
+                            text-[13px]
+                            font-medium
+                          "
                         >
                           On Track
                         </span>
                       </div>
 
                       {/* Description */}
-
                       <p
                         className="
-                    mt-5
-                    text-[14px]
-                    leading-7
-                    text-[#6F6F86]
-                  "
+                          mt-5
+
+                          text-[14px]
+                          leading-7
+
+                          text-[#6F6F86]
+                          dark:text-gray-400
+                        "
                       >
                         {task.description}
                       </p>
 
                       {/* Preview Image */}
-
                       {task.image && (
                         <div className="mt-5">
                           <img
                             src={task.image}
-                            alt=""
+                            alt={task.title}
                             className="
-                        w-full
-                        h-[150px]
-                        object-cover
-                        rounded-xl
-                      "
+                              w-full
+                              h-[150px]
+
+                              object-cover
+
+                              rounded-xl
+                            "
                           />
                         </div>
                       )}
 
                       {/* Footer */}
-
                       <div className="mt-5 flex justify-between items-center">
                         {/* Members */}
-
                         <div className="flex items-center">
                           <div className="flex -space-x-3">
                             {task.members.map((member, index) => (
@@ -953,54 +1478,69 @@ export default function BaseTaskPreview() {
                                 src={member}
                                 alt=""
                                 className="
-                              w-9
-                              h-9
-                              rounded-full
-                              border-2
-                              border-white
-                              object-cover
-                            "
+                                  w-9
+                                  h-9
+
+                                  rounded-full
+
+                                  border-2
+                                  border-white
+                                  dark:border-gray-900
+
+                                  object-cover
+                                "
                               />
                             ))}
                           </div>
 
                           <div
                             className="
-                        ml-1
-                        w-9
-                        h-9
-                        rounded-full
-                        bg-[#35B8D8]
-                        text-white
-                        flex
-                        items-center
-                        justify-center
-                        text-[18px]
-                      "
+                              ml-1
+
+                              w-9
+                              h-9
+
+                              rounded-full
+
+                              bg-[#35B8D8]
+
+                              text-white
+
+                              flex
+                              items-center
+                              justify-center
+
+                              text-[18px]
+                            "
                           >
                             +
                           </div>
                         </div>
 
                         {/* Stats */}
-
                         <div className="flex gap-4">
                           <div
                             className="
-                        flex items-center gap-1
-                        text-[#A5A5BC]
-                        text-[13px]
-                      "
+                              flex items-center gap-1
+
+                              text-[#A5A5BC]
+                              dark:text-gray-500
+
+                              text-[13px]
+                            "
                           >
                             💬 112
                           </div>
 
                           <div
                             className="
-                        flex items-center gap-1
-                        text-[#A5A5BC]
-                        text-[13px]
-                      "
+                              flex items-center gap-1
+
+                              text-[#A5A5BC]
+                              dark:text-gray-500
+
+                              text-[13px]
+                            "
                           >
                             🤍 1.2k
                           </div>
@@ -1008,18 +1548,27 @@ export default function BaseTaskPreview() {
                       </div>
 
                       {/* Actions */}
-
                       <div className="flex gap-3 mt-5">
                         <button
                           onClick={() => handleEditTask(task)}
                           className="
-                      flex-1
-                      h-[42px]
-                      rounded-xl
-                      bg-[#F5F3FF]
-                      text-[#5B5CF0]
-                      font-medium
-                    "
+                            flex-1
+                            h-[42px]
+
+                            rounded-xl
+
+                            bg-[#F5F3FF]
+                            dark:bg-indigo-900/30
+
+                            text-[#5B5CF0]
+                            dark:text-indigo-400
+
+                            font-medium
+
+                            hover:opacity-90
+
+                            transition-all
+                          "
                         >
                           Edit
                         </button>
@@ -1027,15 +1576,25 @@ export default function BaseTaskPreview() {
                         <button
                           onClick={() => handleDeleteTask(task.id)}
                           className="
-                      w-[42px]
-                      h-[42px]
-                      rounded-xl
-                      bg-[#FFF1F1]
-                      text-[#FF5A5A]
-                      flex
-                      items-center
-                      justify-center
-                    "
+                            w-[42px]
+                            h-[42px]
+
+                            rounded-xl
+
+                            bg-[#FFF1F1]
+                            dark:bg-red-900/20
+
+                            text-[#FF5A5A]
+                            dark:text-red-400
+
+                            flex
+                            items-center
+                            justify-center
+
+                            hover:opacity-90
+
+                            transition-all
+                          "
                         >
                           <Trash2 size={16} />
                         </button>
@@ -1051,62 +1610,108 @@ export default function BaseTaskPreview() {
       {/* ====================================== */}
       {/* TIMELINE VIEW */}
       {/* ====================================== */}
-
       {activeTab === "timeline" && (
         <div
           className="
-      bg-white
-      rounded-3xl
-      p-6
-      overflow-x-auto
-    "
+            bg-white
+            dark:bg-gray-900
+
+            border
+            border-transparent
+            dark:border-gray-800
+
+            rounded-3xl
+
+            p-4
+            md:p-6
+
+            overflow-x-auto
+
+            transition-all
+          "
         >
           {/* Header */}
+          <div
+            className="
+              flex
+              flex-col
+              lg:flex-row
 
-          <div className="flex items-center justify-between mb-8">
+              lg:items-center
+              justify-between
+
+              gap-4
+
+              mb-8
+            "
+          >
             <h2
               className="
-          text-[30px]
-          font-medium
-          text-[#11142D]
-        "
+                text-[24px]
+                md:text-[30px]
+
+                font-medium
+
+                text-[#11142D]
+                dark:text-white
+              "
             >
               Project Timeline
             </h2>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <button
                 className="
-            px-5
-            h-[42px]
-            rounded-xl
-            bg-[#F5F5F7]
-            text-[#666688]
-          "
+                  px-5
+                  h-[42px]
+
+                  rounded-xl
+
+                  bg-[#F5F5F7]
+                  dark:bg-gray-800
+
+                  text-[#666688]
+                  dark:text-gray-300
+
+                  transition-all
+                "
               >
                 Previous
               </button>
 
               <button
                 className="
-            px-5
-            h-[42px]
-            rounded-xl
-            bg-[#5B5CF0]
-            text-white
-          "
+                  px-5
+                  h-[42px]
+
+                  rounded-xl
+
+                  bg-[#5B5CF0]
+                  dark:bg-[#7C7AFF]
+
+                  text-white
+
+                  transition-all
+                "
               >
                 Today
               </button>
 
               <button
                 className="
-            px-5
-            h-[42px]
-            rounded-xl
-            bg-[#F5F5F7]
-            text-[#666688]
-          "
+                  px-5
+                  h-[42px]
+
+                  rounded-xl
+
+                  bg-[#F5F5F7]
+                  dark:bg-gray-800
+
+                  text-[#666688]
+                  dark:text-gray-300
+
+                  transition-all
+                "
               >
                 Next
               </button>
@@ -1114,87 +1719,64 @@ export default function BaseTaskPreview() {
           </div>
 
           {/* Timeline Layout */}
-
           <div
             className="
-        min-w-[1200px]
-        grid
-        grid-cols-[220px_1fr]
-      "
+              min-w-[1200px]
+              grid
+              grid-cols-[220px_1fr]
+            "
           >
-            {/* Left Status Column */}
-
-            <div className="border-r border-[#ECECF5]">
+            {/* LEFT STATUS COLUMN */}
+            <div
+              className="
+                border-r
+                border-[#ECECF5]
+                dark:border-gray-800
+              "
+            >
               <div className="h-[80px]" />
 
-              <div
-                className="
-            h-[120px]
-            flex items-center
-            px-5
-            text-[18px]
-            font-medium
-            text-[#11142D]
-            border-b
-          "
-              >
-                To Do
-              </div>
+              {["To Do", "In Progress", "In Review", "Done"].map((status) => (
+                <div
+                  key={status}
+                  className="
+                      h-[120px]
 
-              <div
-                className="
-            h-[120px]
-            flex items-center
-            px-5
-            text-[18px]
-            font-medium
-            text-[#11142D]
-            border-b
-          "
-              >
-                In Progress
-              </div>
+                      flex
+                      items-center
 
-              <div
-                className="
-            h-[120px]
-            flex items-center
-            px-5
-            text-[18px]
-            font-medium
-            text-[#11142D]
-            border-b
-          "
-              >
-                In Review
-              </div>
+                      px-5
 
-              <div
-                className="
-            h-[120px]
-            flex items-center
-            px-5
-            text-[18px]
-            font-medium
-            text-[#11142D]
-          "
-              >
-                Done
-              </div>
+                      text-[18px]
+                      font-medium
+
+                      text-[#11142D]
+                      dark:text-white
+
+                      border-b
+                      border-[#ECECF5]
+                      dark:border-gray-800
+                    "
+                >
+                  {status}
+                </div>
+              ))}
             </div>
 
-            {/* Right Timeline */}
-
+            {/* RIGHT TIMELINE */}
             <div className="relative">
-              {/* Hours */}
-
+              {/* Time Header */}
               <div
                 className="
-            grid
-            grid-cols-9
-            h-[80px]
-            border-b
-          "
+                  grid
+                  grid-cols-9
+
+                  h-[80px]
+
+                  border-b
+                  border-[#ECECF5]
+                  dark:border-gray-800
+                "
               >
                 {[
                   "09:00",
@@ -1210,82 +1792,101 @@ export default function BaseTaskPreview() {
                   <div
                     key={time}
                     className="
-                flex
-                items-center
-                justify-center
-                text-[14px]
-                text-[#8A8AA0]
-                border-r
-              "
+                      flex
+                      items-center
+                      justify-center
+
+                      text-[14px]
+
+                      text-[#8A8AA0]
+                      dark:text-gray-400
+
+                      border-r
+                      border-[#ECECF5]
+                      dark:border-gray-800
+                    "
                   >
                     {time}
                   </div>
                 ))}
               </div>
 
-              {/* Grid Rows */}
-
+              {/* Grid */}
               {[1, 2, 3, 4].map((row) => (
                 <div
                   key={row}
                   className="
-              h-[120px]
-              border-b
-              border-[#ECECF5]
-              grid
-              grid-cols-9
-            "
+                    h-[120px]
+
+                    border-b
+                    border-[#ECECF5]
+                    dark:border-gray-800
+
+                    grid
+                    grid-cols-9
+                  "
                 >
-                  {Array.from({
-                    length: 9,
-                  }).map((_, i) => (
+                  {Array.from({ length: 9 }).map((_, i) => (
                     <div
                       key={i}
                       className="
-                  border-r
-                  border-[#ECECF5]
-                "
+                        border-r
+                        border-[#ECECF5]
+                        dark:border-gray-800
+                      "
                     />
                   ))}
                 </div>
               ))}
 
               {/* Task Card 1 */}
-
               <div
                 className="
-            absolute
-            top-[105px]
-            left-[140px]
-            w-[320px]
-            bg-white
-            border
-            border-[#ECECF5]
-            rounded-2xl
-            p-4
-            shadow-sm
-          "
+                  absolute
+                  top-[105px]
+                  left-[140px]
+
+                  w-[320px]
+
+                  bg-white
+                  dark:bg-gray-800
+
+                  border
+                  border-[#ECECF5]
+                  dark:border-gray-700
+
+                  rounded-2xl
+
+                  p-4
+
+                  shadow-sm
+                "
               >
                 <div className="flex justify-between">
                   <h3
                     className="
-                text-[16px]
-                font-medium
-                text-[#11142D]
-              "
+                      text-[16px]
+                      font-medium
+
+                      text-[#11142D]
+                      dark:text-white
+                    "
                   >
                     Dashboard Design
                   </h3>
 
                   <span
                     className="
-                px-3
-                py-1
-                rounded-full
-                bg-[#35B8D8]
-                text-white
-                text-[12px]
-              "
+                      px-3
+                      py-1
+
+                      rounded-full
+
+                      bg-[#35B8D8]
+
+                      text-white
+                      text-[12px]
+                    "
                   >
                     High
                   </span>
@@ -1293,10 +1894,13 @@ export default function BaseTaskPreview() {
 
                 <p
                   className="
-              mt-3
-              text-[13px]
-              text-[#6F6F86]
-            "
+                    mt-3
+
+                    text-[13px]
+
+                    text-[#6F6F86]
+                    dark:text-gray-400
+                  "
                 >
                   Discussion for management dashboard UI.
                 </p>
@@ -1308,53 +1912,68 @@ export default function BaseTaskPreview() {
                       src={member}
                       alt=""
                       className="
-                    w-8
-                    h-8
-                    rounded-full
-                    border-2
-                    border-white
-                  "
+                        w-8
+                        h-8
+
+                        rounded-full
+
+                        border-2
+                        border-white
+                        dark:border-gray-800
+                      "
                     />
                   ))}
                 </div>
               </div>
 
               {/* Task Card 2 */}
-
               <div
                 className="
-            absolute
-            top-[225px]
-            left-[360px]
-            w-[340px]
-            bg-white
-            border
-            border-[#ECECF5]
-            rounded-2xl
-            p-4
-            shadow-sm
-          "
+                  absolute
+                  top-[225px]
+                  left-[360px]
+
+                  w-[340px]
+
+                  bg-white
+                  dark:bg-gray-800
+
+                  border
+                  border-[#ECECF5]
+                  dark:border-gray-700
+
+                  rounded-2xl
+
+                  p-4
+
+                  shadow-sm
+                "
               >
                 <div className="flex justify-between">
                   <h3
                     className="
-                text-[16px]
-                font-medium
-                text-[#11142D]
-              "
+                      text-[16px]
+                      font-medium
+
+                      text-[#11142D]
+                      dark:text-white
+                    "
                   >
                     Landing Page Design
                   </h3>
 
                   <span
                     className="
-                px-3
-                py-1
-                rounded-full
-                bg-[#FF8A5B]
-                text-white
-                text-[12px]
-              "
+                      px-3
+                      py-1
+
+                      rounded-full
+
+                      bg-[#FF8A5B]
+
+                      text-white
+                      text-[12px]
+                    "
                   >
                     Medium
                   </span>
@@ -1362,10 +1981,13 @@ export default function BaseTaskPreview() {
 
                 <p
                   className="
-              mt-3
-              text-[13px]
-              text-[#6F6F86]
-            "
+                    mt-3
+
+                    text-[13px]
+
+                    text-[#6F6F86]
+                    dark:text-gray-400
+                  "
                 >
                   Homepage wireframe and hero section.
                 </p>
@@ -1377,53 +1999,68 @@ export default function BaseTaskPreview() {
                       src={member}
                       alt=""
                       className="
-                    w-8
-                    h-8
-                    rounded-full
-                    border-2
-                    border-white
-                  "
+                        w-8
+                        h-8
+
+                        rounded-full
+
+                        border-2
+                        border-white
+                        dark:border-gray-800
+                      "
                     />
                   ))}
                 </div>
               </div>
 
               {/* Task Card 3 */}
-
               <div
                 className="
-            absolute
-            top-[345px]
-            left-[580px]
-            w-[320px]
-            bg-white
-            border
-            border-[#ECECF5]
-            rounded-2xl
-            p-4
-            shadow-sm
-          "
+                  absolute
+                  top-[345px]
+                  left-[580px]
+
+                  w-[320px]
+
+                  bg-white
+                  dark:bg-gray-800
+
+                  border
+                  border-[#ECECF5]
+                  dark:border-gray-700
+
+                  rounded-2xl
+
+                  p-4
+
+                  shadow-sm
+                "
               >
                 <div className="flex justify-between">
                   <h3
                     className="
-                text-[16px]
-                font-medium
-                text-[#11142D]
-              "
+                      text-[16px]
+                      font-medium
+
+                      text-[#11142D]
+                      dark:text-white
+                    "
                   >
                     E-Shop Mobile App
                   </h3>
 
                   <span
                     className="
-                px-3
-                py-1
-                rounded-full
-                bg-[#5B5CF0]
-                text-white
-                text-[12px]
-              "
+                      px-3
+                      py-1
+
+                      rounded-full
+
+                      bg-[#5B5CF0]
+
+                      text-white
+                      text-[12px]
+                    "
                   >
                     Running
                   </span>
@@ -1431,10 +2068,13 @@ export default function BaseTaskPreview() {
 
                 <p
                   className="
-              mt-3
-              text-[13px]
-              text-[#6F6F86]
-            "
+                    mt-3
+
+                    text-[13px]
+
+                    text-[#6F6F86]
+                    dark:text-gray-400
+                  "
                 >
                   Product details and checkout screens.
                 </p>
@@ -1446,12 +2086,15 @@ export default function BaseTaskPreview() {
                       src={member}
                       alt=""
                       className="
-                    w-8
-                    h-8
-                    rounded-full
-                    border-2
-                    border-white
-                  "
+                        w-8
+                        h-8
+
+                        rounded-full
+
+                        border-2
+                        border-white
+                        dark:border-gray-800
+                      "
                     />
                   ))}
                 </div>

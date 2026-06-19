@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 import { Plus, MoreHorizontal, Phone, MapPin, Mail } from "lucide-react";
+import { useTheme } from "@/utils/BaseThemeContext";
 
 type Customer = {
   id: number;
@@ -14,6 +15,8 @@ type Customer = {
 };
 
 export default function BaseCustomerList() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   const [customers, setCustomers] = useState<Customer[]>([
     {
       id: 1,
@@ -115,7 +118,6 @@ export default function BaseCustomerList() {
 
     setSelectedCustomer(newCustomer);
 
-
     setForm({
       firstName: "",
       lastName: "",
@@ -127,10 +129,18 @@ export default function BaseCustomerList() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5F7]">
+    <div
+      className="
+    min-h-screen
+    bg-[#F5F5F7]
+    dark:bg-slate-950
+    transition-colors
+    duration-300
+  "
+    >
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between gap-4 mb-6">
-        <h1 className="text-[20px] md:text-[32px] font-medium text-[#11142D]">
+        <h1 className="text-[20px] md:text-[32px] font-medium ext-[#11142D] dark:text-white">
           Customer List
         </h1>
 
@@ -139,15 +149,27 @@ export default function BaseCustomerList() {
             setPanelType("add");
           }}
           className="
-    h-[48px]
-    px-5
-    bg-[#5B5CF0]
-    rounded-xl
-    text-white
-    text-[15px]
-    font-medium
-    flex items-center gap-2
-  "
+          h-[48px]
+          px-5
+
+          bg-[#5B5CF0]
+          hover:bg-[#4F50E8]
+
+          dark:bg-[#7C7AFF]
+          dark:hover:bg-[#6B63FF]
+
+          rounded-xl
+
+          text-white
+          text-[15px]
+          font-medium
+
+          flex
+          items-center
+          gap-2
+
+          transition-all
+        "
         >
           <Plus size={18} />
           Add Customer
@@ -163,7 +185,7 @@ export default function BaseCustomerList() {
             className="
               hidden md:grid
               grid-cols-[1.2fr_1.5fr_1fr_120px_50px]
-              text-[#8A8AA0]
+             text-[#8A8AA0] dark:text-gray-400
               text-[14px]
               px-5 mb-3
             "
@@ -187,6 +209,11 @@ export default function BaseCustomerList() {
                 className={`
                   w-full
                   bg-white
+                dark:bg-gray-900
+
+                border
+                border-transparent
+                dark:border-gray-800
                   rounded-2xl
                   p-4
                   text-left
@@ -196,7 +223,7 @@ export default function BaseCustomerList() {
                   ${
                     selectedCustomer.id === customer.id
                       ? "border-[#1D9BF0]"
-                      : "border-transparent"
+                      : "border-transparent dark:border-gray-800"
                   }
 
                   md:grid
@@ -218,7 +245,7 @@ export default function BaseCustomerList() {
                     "
                   />
 
-                  <p className="text-[15px] text-[#11142D] font-medium">
+                  <p className="text-[15px] text-[#11142D] dark:text-white font-medium">
                     {customer.name}
                   </p>
                 </div>
@@ -227,7 +254,7 @@ export default function BaseCustomerList() {
                 <p
                   className="
                     text-[14px]
-                    text-[#555577]
+                   text-[#11142D] dark:text-white
                     mt-2 md:mt-0
                   "
                 >
@@ -238,7 +265,7 @@ export default function BaseCustomerList() {
                 <p
                   className="
                     text-[14px]
-                    text-[#555577]
+                    text-[#555577] dark:text-gray-400
                     mt-2 md:mt-0
                   "
                 >
@@ -290,171 +317,169 @@ export default function BaseCustomerList() {
         <div
           className="
     bg-white
+    dark:bg-gray-900
+
+    border
+    border-[#ECECF5]
+    dark:border-gray-800
+
     rounded-2xl
-    p-6
+
+    p-5
+    sm:p-6
+
     h-fit
     sticky
     top-6
+
+    transition-all
+    duration-300
   "
         >
           {panelType === "details" && (
-            <div
-              className="
-    bg-white
-    rounded-2xl
-    p-6
-    h-fit
-    sticky
-    top-6
-  "
-            >
+            <>
               {/* Profile */}
               <div className="text-center">
                 <img
                   src={selectedCustomer.image}
                   alt={selectedCustomer.name}
                   className="
-        w-[72px]
-        h-[72px]
-        rounded-full
-        object-cover
-        mx-auto
-      "
+            w-[72px]
+            h-[72px]
+            rounded-full
+            object-cover
+            mx-auto
+            border-2
+            border-[#ECECF5]
+            dark:border-gray-700
+          "
                 />
 
                 <h2
                   className="
-      mt-4
-      text-[28px]
-      font-medium
-      text-[#11142D]
-    "
+            mt-4
+            text-[24px]
+            sm:text-[28px]
+            font-semibold
+            text-[#11142D]
+            dark:text-white
+          "
                 >
                   {selectedCustomer.name}
                 </h2>
 
                 <p
                   className="
-      text-[15px]
-      text-[#8A8AA0]
-      mt-1
-    "
+            mt-1
+            text-[15px]
+            text-[#8A8AA0]
+            dark:text-gray-400
+          "
                 >
                   {selectedCustomer.role}
                 </p>
               </div>
 
-              {/* Divider */}
-              <div className="border-t border-[#ECECF5] my-6" />
+              <div className="border-t border-[#ECECF5] dark:border-gray-800 my-6" />
 
               {/* Contact Info */}
               <div>
                 <h3
                   className="
-      text-[18px]
-      font-medium
-      text-[#11142D]
-      mb-5
-    "
+            text-[18px]
+            font-semibold
+            text-[#11142D]
+            dark:text-white
+            mb-5
+          "
                 >
                   Contact Info
                 </h3>
 
                 <div className="space-y-5">
-                  <div className="flex items-start gap-3">
-                    <div
-                      className="
-          w-9 h-9 rounded-full
-          bg-[#F5F5F7]
-          flex items-center justify-center
-        "
-                    >
-                      <Mail size={16} color="#8A8AA0" />
+                  {[
+                    {
+                      icon: <Mail size={16} />,
+                      value: selectedCustomer.email,
+                    },
+                    {
+                      icon: <Phone size={16} />,
+                      value: selectedCustomer.phone,
+                    },
+                    {
+                      icon: <MapPin size={16} />,
+                      value: selectedCustomer.address,
+                    },
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <div
+                        className="
+                  w-10
+                  h-10
+
+                  rounded-full
+
+                  bg-[#F5F5F7]
+                  dark:bg-gray-800
+
+                  flex
+                  items-center
+                  justify-center
+
+                  text-[#8A8AA0]
+                  dark:text-gray-400
+                "
+                      >
+                        {item.icon}
+                      </div>
+
+                      <p
+                        className="
+                  text-[14px]
+                  text-[#555577]
+                  dark:text-gray-300
+                  break-all
+                "
+                      >
+                        {item.value}
+                      </p>
                     </div>
-
-                    <p
-                      className="
-          text-[14px]
-          text-[#555577]
-          break-all
-        "
-                    >
-                      {selectedCustomer.email}
-                    </p>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="
-          w-9 h-9 rounded-full
-          bg-[#F5F5F7]
-          flex items-center justify-center
-        "
-                    >
-                      <Phone size={16} color="#8A8AA0" />
-                    </div>
-
-                    <p
-                      className="
-          text-[14px]
-          text-[#555577]
-        "
-                    >
-                      {selectedCustomer.phone}
-                    </p>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <div
-                      className="
-          w-9 h-9 rounded-full
-          bg-[#F5F5F7]
-          flex items-center justify-center
-        "
-                    >
-                      <MapPin size={16} color="#8A8AA0" />
-                    </div>
-
-                    <p
-                      className="
-          text-[14px]
-          text-[#555577]
-        "
-                    >
-                      {selectedCustomer.address}
-                    </p>
-                  </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Divider */}
-              <div className="border-t border-[#ECECF5] my-6" />
+              <div className="border-t border-[#ECECF5] dark:border-gray-800 my-6" />
 
               {/* Performance */}
               <div>
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                   <h3
                     className="
-        text-[18px]
-        font-medium
-        text-[#11142D]
-      "
+              text-[18px]
+              font-semibold
+              text-[#11142D]
+              dark:text-white
+            "
                   >
                     Performance
                   </h3>
 
-                  <MoreHorizontal size={18} color="#A0A0B5" />
+                  <MoreHorizontal
+                    size={18}
+                    color={isDark ? "#9CA3AF" : "#A0A0B5"}
+                  />
                 </div>
 
-                {/* Bar Chart */}
+                {/* Mini Chart */}
                 <div
                   className="
-      mt-6
-      flex items-end
-      justify-between
-      h-[110px]
-      px-2
-    "
+            mt-6
+            flex
+            items-end
+            justify-between
+            h-[120px]
+            px-2
+          "
                 >
                   {[
                     { month: "Jan", height: 35 },
@@ -470,10 +495,15 @@ export default function BaseCustomerList() {
                     >
                       <div
                         className={`
-              w-[6px]
-              rounded-full
-              ${item.active ? "bg-[#FA8458]" : "bg-[#F4D7CF]"}
-            `}
+                  w-[8px]
+                  rounded-full
+                  transition-all
+                  ${
+                    item.active
+                      ? "bg-[#FA8458]"
+                      : "bg-[#F4D7CF] dark:bg-orange-900"
+                  }
+                `}
                         style={{
                           height: item.height,
                         }}
@@ -481,10 +511,11 @@ export default function BaseCustomerList() {
 
                       <span
                         className="
-            mt-3
-            text-[12px]
-            text-[#8A8AA0]
-          "
+                  mt-3
+                  text-[12px]
+                  text-[#8A8AA0]
+                  dark:text-gray-500
+                "
                       >
                         {item.month}
                       </span>
@@ -495,32 +526,50 @@ export default function BaseCustomerList() {
                 {/* Progress Cards */}
                 <div
                   className="
-      grid
-      grid-cols-2
-      gap-4
-      mt-6
-    "
+            grid
+            grid-cols-2
+            gap-4
+            mt-6
+          "
                 >
                   <div
                     className="
-        border border-[#ECECF5]
-        rounded-xl
-        h-[90px]
-        flex items-center justify-center
-      "
+              h-[100px]
+
+              rounded-xl
+
+              border
+              border-[#ECECF5]
+              dark:border-gray-800
+
+              bg-[#FAFAFC]
+              dark:bg-gray-800
+
+              flex
+              items-center
+              justify-center
+            "
                   >
                     <div
                       className="
-          w-[55px]
-          h-[55px]
-          rounded-full
-          border-[5px]
-          border-[#F6C445]
-          flex items-center justify-center
-          text-[13px]
-          font-medium
-          text-[#11142D]
-        "
+                w-[60px]
+                h-[60px]
+
+                rounded-full
+
+                border-[5px]
+                border-[#F6C445]
+
+                flex
+                items-center
+                justify-center
+
+                text-[13px]
+                font-semibold
+
+                text-[#11142D]
+                dark:text-white
+              "
                     >
                       70%
                     </div>
@@ -528,47 +577,80 @@ export default function BaseCustomerList() {
 
                   <div
                     className="
-        border border-[#ECECF5]
-        rounded-xl
-        h-[90px]
-        flex items-center justify-center
-      "
+              h-[100px]
+
+              rounded-xl
+
+              border
+              border-[#ECECF5]
+              dark:border-gray-800
+
+              bg-[#FAFAFC]
+              dark:bg-gray-800
+
+              flex
+              items-center
+              justify-center
+            "
                   >
                     <div
                       className="
-          w-[55px]
-          h-[55px]
-          rounded-full
-          border-[5px]
-          border-[#5B8CF6]
-          flex items-center justify-center
-          text-[13px]
-          font-medium
-          text-[#11142D]
-        "
+                w-[60px]
+                h-[60px]
+
+                rounded-full
+
+                border-[5px]
+                border-[#5B8CF6]
+
+                flex
+                items-center
+                justify-center
+
+                text-[13px]
+                font-semibold
+
+                text-[#11142D]
+                dark:text-white
+              "
                     >
                       60%
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </>
           )}
 
           {panelType === "add" && (
             <>
-              <div className="flex justify-between items-center mb-8">
-                <h2 className="text-[24px] font-medium text-[#11142D]">
+              <div className="flex items-center justify-between mb-8">
+                <h2
+                  className="
+            text-[24px]
+            font-semibold
+            text-[#11142D]
+            dark:text-white
+          "
+                >
                   Add Customer
                 </h2>
 
                 <button
                   onClick={() => setPanelType(null)}
                   className="
-            w-8 h-8
+            w-8
+            h-8
+
             rounded-full
+
             bg-[#FFF1F1]
+            dark:bg-red-950
+
             text-[#FA8458]
+            dark:text-red-300
+
+            transition-all
           "
                 >
                   ✕
@@ -581,11 +663,17 @@ export default function BaseCustomerList() {
                   className="
             w-[110px]
             h-[110px]
+
             rounded-full
+
             bg-[#F5F5F7]
-            flex items-center
+            dark:bg-gray-800
+
+            flex
+            items-center
             justify-center
-            text-[30px]
+
+            text-[32px]
           "
                 >
                   📷
@@ -594,61 +682,58 @@ export default function BaseCustomerList() {
 
               {/* Form */}
               <div className="space-y-4">
-                <input
-                  placeholder="First Name"
-                  className="
-            w-full h-[48px]
-            rounded-xl
-            bg-[#F5F5F7]
-            text-[#000000]
-            px-4 text-[14px]
-            outline-none
-          "
-                />
+                {["First Name", "Last Name", "Email", "Phone Number"].map(
+                  (placeholder) => (
+                    <input
+                      key={placeholder}
+                      placeholder={placeholder}
+                      className="
+              w-full
+              h-[48px]
 
-                <input
-                  placeholder="Last Name"
-                  className="
-            w-full h-[48px]
-            rounded-xl
-            bg-[#F5F5F7]
-            text-[#000000]
-            px-4 text-[14px]
-            outline-none
-          "
-                />
+              rounded-xl
 
-                <input
-                  placeholder="Email"
-                  className="
-            w-full h-[48px]
-            rounded-xl
-            bg-[#F5F5F7]
-            text-[#000000]
-            px-4 text-[14px]
-            outline-none
-          "
-                />
+              bg-[#F5F5F7]
+              dark:bg-gray-800
 
-                <input
-                  placeholder="Phone Number"
-                  className="
-            w-full h-[48px]
-            rounded-xl
-            bg-[#F5F5F7]
-            text-[#000000]
-            px-4 text-[14px]
-            outline-none
-          "
-                />
+              text-black
+              dark:text-white
+
+              border
+              border-transparent
+              dark:border-gray-700
+
+              px-4
+              text-[14px]
+
+              outline-none
+
+              focus:border-[#5B5CF0]
+            "
+                    />
+                  ),
+                )}
 
                 <select
                   className="
-            w-full h-[48px]
+            w-full
+            h-[48px]
+
             rounded-xl
+
             bg-[#F5F5F7]
-            px-4 text-[14px]
-            text-[#000000]
+            dark:bg-gray-800
+
+            text-black
+            dark:text-white
+
+            border
+            border-transparent
+            dark:border-gray-700
+
+            px-4
+            text-[14px]
+
             outline-none
           "
                 >
@@ -657,16 +742,25 @@ export default function BaseCustomerList() {
                 </select>
 
                 <button
+                  onClick={addCustomer}
                   className="
-            w-full h-[50px]
-            mt-3
+            w-full
+            h-[50px]
+
             rounded-xl
+
             bg-[#5B5CF0]
+            hover:bg-[#4F50E8]
+
+            dark:bg-[#7C7AFF]
+            dark:hover:bg-[#6B63FF]
+
             text-white
             text-[15px]
             font-medium
+
+            transition-all
           "
-                  onClick={addCustomer}
                 >
                   Add Customer
                 </button>

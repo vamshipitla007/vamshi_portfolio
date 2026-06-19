@@ -177,7 +177,17 @@ export default function BaseMessage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5F7]">
+    <div
+      className="
+    min-h-screen
+
+    bg-[#F5F5F7]
+    dark:bg-slate-950
+
+    transition-colors
+    duration-300
+  "
+    >
       {/* Main Container */}
       <div className="grid grid-cols-1 lg:grid-cols-[350px_1fr] gap-6">
         {/* ===================================
@@ -186,30 +196,53 @@ export default function BaseMessage() {
 
         <div
           className={`
-            bg-white rounded-2xl p-5
-            ${mobileChat ? "hidden lg:block" : ""}
-          `}
+    bg-white
+    dark:bg-gray-900
+
+    border
+    border-[#ECECF5]
+    dark:border-gray-800
+
+    rounded-2xl
+    p-5
+
+    transition-all
+    duration-300
+
+    ${mobileChat ? "hidden lg:block" : ""}
+  `}
         >
           {/* Header */}
           <div className="flex justify-between items-center">
             <h2
               className="
-              text-[16px]
-              font-medium
-              text-[#11142D]
-            "
+        text-[16px]
+        font-medium
+
+        text-[#11142D]
+        dark:text-white
+      "
             >
               Message
             </h2>
 
             <button
               className="
-                w-7 h-7
-                rounded-full
-                bg-[#5B5CF0]
-                text-white
-                flex items-center justify-center
-              "
+        w-8 h-8
+
+        rounded-full
+
+        bg-[#5B5CF0]
+        hover:bg-[#4E4FE8]
+
+        text-white
+
+        flex
+        items-center
+        justify-center
+
+        transition-all
+      "
             >
               <Plus size={16} />
             </button>
@@ -220,48 +253,79 @@ export default function BaseMessage() {
             <Search
               size={16}
               className="
-                absolute left-3 top-1/2
-                -translate-y-1/2
-                text-[#8A8AA0]
-              "
+        absolute
+        left-3
+        top-1/2
+        -translate-y-1/2
+
+        text-[#8A8AA0]
+        dark:text-gray-400
+      "
             />
 
             <input
               placeholder="Search"
               className="
-                w-full h-[42px]
-                bg-[#F8F8FA]
-                rounded-lg
-                pl-10
-                text-[14px]
-                outline-none
-              "
+        w-full
+        h-[42px]
+
+        bg-[#F8F8FA]
+        dark:bg-gray-800
+
+        border
+        border-transparent
+        dark:border-gray-700
+
+        rounded-lg
+
+        pl-10
+        pr-4
+
+        text-[14px]
+
+        text-[#11142D]
+        dark:text-white
+
+        placeholder:text-[#8A8AA0]
+        dark:placeholder:text-gray-500
+
+        outline-none
+
+        focus:border-[#5B5CF0]
+      "
             />
           </div>
 
           {/* Tabs */}
           <div
             className="
-            flex justify-around
-            mt-6 border-b
-            border-[#ECECF5]
-          "
+      flex
+      justify-around
+
+      mt-6
+
+      border-b
+      border-[#ECECF5]
+      dark:border-gray-800
+    "
           >
             {["All", "Personal", "Teams"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`
-                  pb-3 text-[15px]
-                  font-medium
-                  transition-all
+          pb-3
+          text-[15px]
+          font-medium
 
-                  ${
-                    activeTab === tab
-                      ? "text-[#5B5CF0] border-b-2 border-[#5B5CF0]"
-                      : "text-[#8A8AA0]"
-                  }
-                `}
+          transition-all
+
+          ${
+            activeTab === tab
+              ? "text-[#5B5CF0] border-b-2 border-[#5B5CF0]"
+              : "text-[#8A8AA0] dark:text-gray-400"
+          }
+        `}
               >
                 {tab}
               </button>
@@ -278,58 +342,96 @@ export default function BaseMessage() {
                   setMobileChat(true);
                 }}
                 className={`
-                  w-full text-left
-                  flex items-start gap-3
-                  p-3 rounded-xl
-                  mb-1 transition-all
+          w-full
+          text-left
 
-                  ${
-                    selectedUser.id === user.id
-                      ? "bg-[#F4F4FF]"
-                      : "hover:bg-[#F8F8FA]"
-                  }
-                `}
+          flex
+          items-start
+          gap-3
+
+          p-3
+
+          rounded-xl
+
+          mb-1
+
+          transition-all
+
+          ${
+            selectedUser.id === user.id
+              ? "bg-[#F4F4FF] dark:bg-[#2A2A55]"
+              : "hover:bg-[#F8F8FA] dark:hover:bg-gray-800"
+          }
+        `}
               >
                 {/* Avatar */}
-                <div className="relative">
+                <div className="relative shrink-0">
                   <img
                     src={user.image}
+                    alt={user.name}
                     className="
-                      w-12 h-12
-                      rounded-full object-cover
-                    "
+              w-12
+              h-12
+
+              rounded-full
+              object-cover
+
+              border
+              border-[#ECECF5]
+              dark:border-gray-700
+            "
                   />
 
                   {user.online && (
                     <span
                       className="
-                        absolute bottom-0 right-0
-                        w-3 h-3 rounded-full
-                        bg-[#2CC84D]
-                        border-2 border-white
-                      "
+                absolute
+                bottom-0
+                right-0
+
+                w-3
+                h-3
+
+                rounded-full
+
+                bg-[#2CC84D]
+
+                border-2
+                border-white
+                dark:border-gray-900
+              "
                     />
                   )}
                 </div>
 
                 {/* User Info */}
-                <div className="flex-1">
-                  <div className="flex justify-between">
+                <div className="flex-1 min-w-0">
+                  <div className="flex justify-between items-start gap-2">
                     <h3
                       className="
-                      text-[16px]
-                      text-[#11142D]
-                      font-medium
-                    "
+                text-[15px]
+                md:text-[16px]
+
+                font-medium
+
+                text-[#11142D]
+                dark:text-white
+
+                truncate
+              "
                     >
                       {user.name}
                     </h3>
 
                     <span
                       className="
-                      text-[11px]
-                      text-[#8A8AA0]
-                    "
+                text-[11px]
+
+                text-[#8A8AA0]
+                dark:text-gray-500
+
+                whitespace-nowrap
+              "
                     >
                       {user.time}
                     </span>
@@ -337,10 +439,15 @@ export default function BaseMessage() {
 
                   <p
                     className="
-                    mt-1 text-[13px]
-                    text-[#8A8AA0]
-                    line-clamp-2
-                  "
+              mt-1
+
+              text-[13px]
+
+              text-[#8A8AA0]
+              dark:text-gray-400
+
+              line-clamp-2
+            "
                   >
                     {user.message}
                   </p>
@@ -353,24 +460,46 @@ export default function BaseMessage() {
         {/* ===================================
             RIGHT CONVERSATION
         ==================================== */}
-
         <div
           className={`
-            bg-white rounded-2xl
-            flex flex-col
-            h-[85vh]
-            overflow-hidden
-            ${!mobileChat ? "hidden lg:flex" : "flex"}
-          `}
+    bg-white
+    dark:bg-gray-900
+
+    border
+    border-[#ECECF5]
+    dark:border-gray-800
+
+    rounded-2xl
+
+    flex
+    flex-col
+
+    h-[100vh]
+
+    overflow-hidden
+
+    transition-all
+    duration-300
+
+    ${!mobileChat ? "hidden lg:flex" : "flex"}
+  `}
         >
           {/* Chat Header */}
           <div
             className="
-              h-[80px]
-              border-b border-[#ECECF5]
-              px-6
-              flex items-center justify-between
-            "
+      h-[80px]
+
+      border-b
+      border-[#ECECF5]
+      dark:border-gray-800
+
+      px-4
+      md:px-6
+
+      flex
+      items-center
+      justify-between
+    "
           >
             <div className="flex items-center gap-3">
               {/* Mobile Back */}
@@ -378,32 +507,51 @@ export default function BaseMessage() {
                 onClick={() => setMobileChat(false)}
                 className="lg:hidden"
               >
-                <ArrowLeft size={22} className="text-[#11142D]" />
+                <ArrowLeft
+                  size={22}
+                  className="
+            text-[#11142D]
+            dark:text-white
+          "
+                />
               </button>
 
+              {/* Avatar */}
               <div className="relative">
                 <img
                   src={selectedUser.image}
                   alt={selectedUser.name}
                   className="
-                    w-[48px]
-                    h-[48px]
-                    rounded-full
-                    object-cover
-                  "
+            w-[48px]
+            h-[48px]
+
+            rounded-full
+            object-cover
+
+            border
+            border-[#ECECF5]
+            dark:border-gray-700
+          "
                 />
 
                 {selectedUser.online && (
                   <span
                     className="
-                      absolute
-                      bottom-0 right-0
-                      w-[12px]
-                      h-[12px]
-                      rounded-full
-                      bg-[#2CC84D]
-                      border-2 border-white
-                    "
+              absolute
+              bottom-0
+              right-0
+
+              w-[12px]
+              h-[12px]
+
+              rounded-full
+
+              bg-[#2CC84D]
+
+              border-2
+              border-white
+              dark:border-gray-900
+            "
                   />
                 )}
               </div>
@@ -412,19 +560,23 @@ export default function BaseMessage() {
               <div>
                 <h2
                   className="
-                    text-[18px]
-                    font-medium
-                    text-[#11142D]
-                  "
+            text-[18px]
+            font-medium
+
+            text-[#11142D]
+            dark:text-white
+          "
                 >
                   {selectedUser.name}
                 </h2>
 
                 <p
                   className="
-                    text-[13px]
-                    text-[#8A8AA0]
-                  "
+            text-[13px]
+
+            text-[#8A8AA0]
+            dark:text-gray-400
+          "
                 >
                   {selectedUser.online ? "Online" : "Offline"}
                 </p>
@@ -433,97 +585,118 @@ export default function BaseMessage() {
 
             {/* Actions */}
             <div className="flex gap-3">
-              {[
-                {
-                  icon: Phone,
-                },
-                {
-                  icon: Video,
-                },
-                {
-                  icon: MoreVertical,
-                },
-              ].map((item, index) => {
-                const Icon = item.icon;
+              {[{ icon: Phone }, { icon: Video }, { icon: MoreVertical }].map(
+                (item, index) => {
+                  const Icon = item.icon;
 
-                return (
-                  <button
-                    key={index}
-                    className="
-                      w-[40px]
-                      h-[40px]
-                      rounded-full
-                      bg-[#F8F8FA]
-                      flex
-                      items-center
-                      justify-center
-                    "
-                  >
-                    <Icon size={18} className="text-[#8A8AA0]" />
-                  </button>
-                );
-              })}
+                  return (
+                    <button
+                      key={index}
+                      className="
+              w-[40px]
+              h-[40px]
+
+              rounded-full
+
+              bg-[#F8F8FA]
+              dark:bg-gray-800
+
+              flex
+              items-center
+              justify-center
+
+              transition-all
+            "
+                    >
+                      <Icon
+                        size={18}
+                        className="
+                text-[#8A8AA0]
+                dark:text-gray-400
+              "
+                      />
+                    </button>
+                  );
+                },
+              )}
             </div>
           </div>
 
-          {/* ================================
-              CHAT BODY
-          ================================= */}
-
+          {/* CHAT BODY */}
           <div
             className="
-              flex-1
-              overflow-y-auto
-              p-6
-              space-y-6
-              bg-white
-            "
+      flex-1
+      overflow-y-auto
+
+      p-4
+      md:p-6
+
+      space-y-6
+
+      bg-white
+      dark:bg-gray-900
+    "
           >
             {(messages[selectedUser.id] || []).map((message) => (
               <div
                 key={message.id}
                 className={`
-                  flex
-                  ${message.sender === "me" ? "justify-start" : "justify-end"}
-                `}
+            flex
+            ${message.sender === "me" ? "justify-start" : "justify-end"}
+          `}
               >
                 {/* Text Message */}
                 {message.type === "text" && (
                   <div
                     className={`
-                      max-w-[350px]
-                      rounded-xl
-                      px-5
-                      py-4
-                      relative
-                      ${
-                        message.sender === "me"
-                          ? "bg-[#5B8CF6] text-white"
-                          : "bg-[#F5F5F7] text-[#11142D]"
-                      }
-                    `}
+                max-w-[300px]
+                md:max-w-[350px]
+
+                rounded-xl
+
+                px-4
+                md:px-5
+
+                py-3
+                md:py-4
+
+                ${
+                  message.sender === "me"
+                    ? "bg-[#5B8CF6] text-white"
+                    : `
+                      bg-[#F5F5F7]
+                      dark:bg-gray-800
+
+                      text-[#11142D]
+                      dark:text-white
+                    `
+                }
+              `}
                   >
                     <p
                       className="
-                        text-[14px]
-                        leading-6
-                      "
+                  text-[14px]
+                  leading-6
+                "
                     >
                       {message.content}
                     </p>
 
                     <span
                       className={`
-                        text-[11px]
-                        mt-2
-                        block
-                        text-right
-                        ${
-                          message.sender === "me"
-                            ? "text-white/80"
-                            : "text-[#8A8AA0]"
-                        }
-                      `}
+                  text-[11px]
+
+                  mt-2
+                  block
+
+                  text-right
+
+                  ${
+                    message.sender === "me"
+                      ? "text-white/80"
+                      : "text-[#8A8AA0] dark:text-gray-500"
+                  }
+                `}
                     >
                       {message.time}
                     </span>
@@ -534,20 +707,25 @@ export default function BaseMessage() {
                 {message.type === "image" && (
                   <div
                     className="
-                      rounded-xl
-                      overflow-hidden
-                      w-[220px]
-                      h-[140px]
-                    "
+                rounded-xl
+                overflow-hidden
+
+                w-[220px]
+                h-[140px]
+
+                border
+                border-[#ECECF5]
+                dark:border-gray-700
+              "
                   >
                     <img
                       src={message.content}
                       alt="chat"
                       className="
-                        w-full
-                        h-full
-                        object-cover
-                      "
+                  w-full
+                  h-full
+                  object-cover
+                "
                     />
                   </div>
                 )}
@@ -555,31 +733,46 @@ export default function BaseMessage() {
             ))}
           </div>
 
-          {/* ================================
-      MESSAGE INPUT
-================================ */}
-
+          {/* MESSAGE INPUT */}
           <div
             className="
-    p-5
-    border-t border-[#ECECF5]
-    bg-white
-  "
+      p-4
+      md:p-5
+
+      border-t
+      border-[#ECECF5]
+      dark:border-gray-800
+
+      bg-white
+      dark:bg-gray-900
+    "
           >
             <div
               className="
-      h-[58px]
-      bg-[#F8F8FA]
-      rounded-xl
-      px-4
-      flex
-      items-center
-      gap-4
-    "
+        h-[58px]
+
+        bg-[#F8F8FA]
+        dark:bg-gray-800
+
+        rounded-xl
+
+        px-4
+
+        flex
+        items-center
+
+        gap-4
+      "
             >
               {/* Attachment */}
               <button>
-                <Paperclip size={20} className="text-[#8A8AA0]" />
+                <Paperclip
+                  size={20}
+                  className="
+            text-[#8A8AA0]
+            dark:text-gray-400
+          "
+                />
               </button>
 
               {/* Input */}
@@ -593,32 +786,53 @@ export default function BaseMessage() {
                 }}
                 placeholder="Type a message..."
                 className="
-        flex-1
-        bg-transparent
-        text-[14px]
-        text-[#11142D]
-        outline-none
-      "
+          flex-1
+
+          bg-transparent
+
+          text-[14px]
+
+          text-[#11142D]
+          dark:text-white
+
+          placeholder:text-[#8A8AA0]
+          dark:placeholder:text-gray-500
+
+          outline-none
+        "
               />
 
               {/* Emoji */}
               <button>
-                <Smile size={20} className="text-[#8A8AA0]" />
+                <Smile
+                  size={20}
+                  className="
+            text-[#8A8AA0]
+            dark:text-gray-400
+          "
+                />
               </button>
 
               {/* Send */}
               <button
                 onClick={sendMessage}
                 className="
-        w-[36px]
-        h-[36px]
-        rounded-full
-        bg-[#5B5CF0]
-        text-white
-        flex
-        items-center
-        justify-center
-      "
+          w-[36px]
+          h-[36px]
+
+          rounded-full
+
+          bg-[#5B5CF0]
+          hover:bg-[#4E4FE8]
+
+          text-white
+
+          flex
+          items-center
+          justify-center
+
+          transition-all
+        "
               >
                 <Send size={16} />
               </button>
