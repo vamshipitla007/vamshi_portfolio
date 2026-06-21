@@ -21,6 +21,7 @@ import FactoryProApp from "./apps/factoryPro/FactoryProApp.js";
 import PUBGapp from "./apps/pubg/PUBGapp.js";
 import Gameapp from "./apps/game/Gameapp.js";
 import Base from "./apps/Base/Base.js";
+import CatEnergyapp from "./apps/catenergy/CatEnergyapp.js";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         <Route path="/factorypro/*" element={<FactoryProApp />} />
         <Route path="/pubg/*" element={<PUBGapp />} />
         <Route path="/esports/*" element={<Gameapp />} />
+        <Route path="/catenergy/*" element={<CatEnergyapp />} />
       </Routes>
     </div>
   );
