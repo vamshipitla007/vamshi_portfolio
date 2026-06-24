@@ -1,6 +1,6 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Portfolio from "./apps/Portfolio";
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import Portfolio from './apps/Portfolio';
 import Restaurantapp from "./apps/restaurantapp/Restaurantapp";
 import ChefRestaurantapp from "./apps/restaurantapp/ChefRestaurantapp";
 import CoffeeApp from "./apps/CoffeeApp";
@@ -22,6 +22,7 @@ import PUBGapp from "./apps/pubg/PUBGapp.js";
 import Gameapp from "./apps/game/Gameapp.js";
 import Base from "./apps/Base/Base.js";
 import CatEnergyapp from "./apps/catenergy/CatEnergyapp.js";
+import { RealEstateApp } from './realestate/RealEstateApp';
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
         <Route path="/pubg/*" element={<PUBGapp />} />
         <Route path="/esports/*" element={<Gameapp />} />
         <Route path="/catenergy/*" element={<CatEnergyapp />} />
+        <Route path="/realestate/*" element={<RealEstateApp />} />
       </Routes>
     </div>
   );
