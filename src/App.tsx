@@ -23,6 +23,7 @@ import Gameapp from "./apps/game/Gameapp.js";
 import Base from "./apps/Base/Base.js";
 import CatEnergyapp from "./apps/catenergy/CatEnergyapp.js";
 import { RealEstateApp } from './realestate/RealEstateApp';
+import KurtisClassroom from './apps/KurtisClassroom.js';
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
         <Route path="/esports/*" element={<Gameapp />} />
         <Route path="/catenergy/*" element={<CatEnergyapp />} />
         <Route path="/realestate/*" element={<RealEstateApp />} />
+        <Route path="/kurtisclassroom/*" element={<KurtisClassroom />} />
       </Routes>
     </div>
   );
