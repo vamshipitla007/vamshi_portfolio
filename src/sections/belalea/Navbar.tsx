@@ -33,7 +33,7 @@ export default function Navbar() {
         <div className="h-[90px] px-6 lg:px-12 flex items-center justify-between">
           {/* Logo */}
 
-          <NavLink to="/" className="flex items-center gap-3 flex-shrink-0">
+          <NavLink to="/belalea/homepage" className="flex items-center gap-3 flex-shrink-0">
             <img src={logo} alt="logo" className="w-30 h-20 object-contain" />
           </NavLink>
 
