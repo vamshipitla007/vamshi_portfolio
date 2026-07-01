@@ -24,6 +24,7 @@ import Base from "./apps/Base/Base.js";
 import CatEnergyapp from "./apps/catenergy/CatEnergyapp.js";
 import { RealEstateApp } from './realestate/RealEstateApp';
 import KurtisClassroom from './apps/KurtisClassroom.js';
+import Belaleaapp from './apps/belalea/Belaleaapp.js';
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
         <Route path="/catenergy/*" element={<CatEnergyapp />} />
         <Route path="/realestate/*" element={<RealEstateApp />} />
         <Route path="/kurtisclassroom/*" element={<KurtisClassroom />} />
+        <Route path="/belalea/*" element={<Belaleaapp />} />
       </Routes>
     </div>
   );
