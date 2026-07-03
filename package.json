@@ -26,6 +26,7 @@
     "react-redux": "^9.3.0",
     "react-router-dom": "^7.14.2",
     "recharts": "^3.8.1",
+    "swiper": "^14.0.1",
     "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
