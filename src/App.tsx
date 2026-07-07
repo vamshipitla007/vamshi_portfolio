@@ -26,6 +26,7 @@ import { RealEstateApp } from './realestate/RealEstateApp';
 import KurtisClassroom from './apps/KurtisClassroom.js';
 import Belaleaapp from './apps/belalea/Belaleaapp.js';
 import { EcommerceApp } from './apps/ecommerce/EcommerceApp';
+import LoujainPortfolio from './apps/LoujainPortfolio.js';
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
         <Route path="/realestate/*" element={<RealEstateApp />} />
         <Route path="/kurtisclassroom/*" element={<KurtisClassroom />} />
         <Route path="/belalea/*" element={<Belaleaapp />} />
+        <Route path="/loujainportfolio/*" element={<LoujainPortfolio />} />
         
         {/* E-Commerce App */}
         <Route path="/ecommerce/*" element={<EcommerceApp />} />
