@@ -1,20 +1,34 @@
 import { motion } from 'framer-motion';
-import cbiLogo from '@/assets/cbi.png';
-import cursorLogo from '@/assets/cursor.png';
-import heroLogo from '@/assets/hero.png';
-import profileLogo from '@/assets/profile.png';
-import project1Logo from '@/assets/project1.png';
-import project2Logo from '@/assets/project2.png';
-import work2Logo from '@/assets/work2.png';
 
 const brands = [
-  { alt: 'Verizon', src: cbiLogo },
-  { alt: 'Lenovo', src: cursorLogo },
-  { alt: 'Slack', src: heroLogo },
-  { alt: 'YouTube', src: profileLogo },
-  { alt: 'Amazon', src: project1Logo },
-  { alt: 'Google', src: project2Logo },
-  { alt: 'Microsoft', src: work2Logo },
+  {
+    alt: "Verizon",
+    src: "https://cdn.simpleicons.org/verizon/CD040B",
+  },
+  {
+    alt: "Lenovo",
+    src: "https://cdn.simpleicons.org/lenovo/E2231A",
+  },
+  {
+    alt: "Slack",
+    src: "https://cdn.simpleicons.org/slack/4A154B",
+  },
+  {
+    alt: "YouTube",
+    src: "https://cdn.simpleicons.org/youtube/FF0000",
+  },
+  {
+    alt: "Amazon",
+    src: "https://cdn.simpleicons.org/amazon/232F3E",
+  },
+  {
+    alt: "Google",
+    src: "https://cdn.simpleicons.org/google/4285F4",
+  },
+  {
+    alt: "Microsoft",
+    src: "https://cdn.simpleicons.org/microsoft/5E5E5E",
+  },
 ];
 
 const Brands = () => {
@@ -27,9 +41,16 @@ const Brands = () => {
           viewport={{ once: true }}
           className="grid gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7"
         >
-          {brands.map((brand) => (
-            <div key={brand.alt} className="flex items-center justify-center rounded-3xl bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-              <img src={brand.src} alt={brand.alt} className="h-8 object-contain" />
+           {brands.map((brand) => (
+            <div
+              key={brand.alt}
+              className="flex h-24 items-center justify-center rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              <img
+                src={brand.src}
+                alt={brand.alt}
+                className="h-10 w-auto object-contain"
+              />
             </div>
           ))}
         </motion.div>

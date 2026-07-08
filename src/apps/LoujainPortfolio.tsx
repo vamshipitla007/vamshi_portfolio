@@ -1,6 +1,6 @@
 import Navbar from '@/sections/loujainPortfolio/Navbar';
 import Hero from '@/sections/loujainPortfolio/Hero';
-import Brands from '@/sections/loujainPortfolio/Brands';
+// import Brands from '@/sections/loujainPortfolio/Brands';
 import Projects from '@/sections/loujainPortfolio/Projects';
 import Skills from '@/sections/loujainPortfolio/Skills';
 import Services from '@/sections/loujainPortfolio/Services';

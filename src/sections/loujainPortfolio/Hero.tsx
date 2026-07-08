@@ -31,6 +31,7 @@ const Hero = () => {
             <a
               href="#contact"
               className="inline-flex items-center justify-center rounded-full bg-slate-950 px-7 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              style={{ backgroundColor: "#2D2A2A", color: "#f2f2f2" }}
             >
               Become a Client
             </a>
