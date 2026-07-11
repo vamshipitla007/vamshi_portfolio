@@ -27,6 +27,7 @@ import KurtisClassroom from './apps/KurtisClassroom.js';
 import Belaleaapp from './apps/belalea/Belaleaapp.js';
 import { EcommerceApp } from './apps/ecommerce/EcommerceApp';
 import LoujainPortfolio from './apps/LoujainPortfolio.js';
+import Flowerapp from './apps/flower/Flowerapp.js';
 
 function App() {
   return (
@@ -66,6 +67,7 @@ function App() {
         <Route path="/kurtisclassroom/*" element={<KurtisClassroom />} />
         <Route path="/belalea/*" element={<Belaleaapp />} />
         <Route path="/loujainportfolio/*" element={<LoujainPortfolio />} />
+        <Route path="/flower/*" element={<Flowerapp />} />
         
         {/* E-Commerce App */}
         <Route path="/ecommerce/*" element={<EcommerceApp />} />
