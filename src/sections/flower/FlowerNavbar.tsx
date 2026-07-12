@@ -5,7 +5,6 @@ import {
   Search,
   Bell,
   Settings,
-  Moon,
   ChevronDown,
   X,
   User,
@@ -13,6 +12,7 @@ import {
   Briefcase,
   LogOut,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface NavbarProps {
   openSidebar: boolean;
@@ -92,6 +92,7 @@ const bottomMenus = [
 ];
 
 const Navbar: React.FC<NavbarProps> = ({ setOpenSidebar }) => {
+  const navigate = useNavigate();
   const [openProfile, setOpenProfile] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
@@ -160,11 +161,6 @@ const Navbar: React.FC<NavbarProps> = ({ setOpenSidebar }) => {
             </div>
           )}
         </div>
-        {/* Dark */}
-
-        <button className="w-11 h-11 rounded-xl hover:bg-[#F7F8FC] flex items-center justify-center transition">
-          <Moon size={20} color="#111827" />
-        </button>
 
         {/* Settings */}
 
@@ -310,6 +306,12 @@ const Navbar: React.FC<NavbarProps> = ({ setOpenSidebar }) => {
                   return (
                     <button
                       key={item.title}
+                      onClick={() => {
+                        if (item.title === "My Profile") {
+                          setOpenProfile(false);
+                          navigate("/flower/profile");
+                        }
+                      }}
                       className="flex w-full items-center gap-5 rounded-2xl px-5 py-4 text-left transition hover:bg-[#F8F9FC]"
                     >
                       <Icon

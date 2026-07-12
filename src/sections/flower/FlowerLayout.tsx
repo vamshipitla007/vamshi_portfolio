@@ -57,7 +57,7 @@ const Layout = () => {
         )} */}
 
         {/* Page */}
-        <main className="pt-[72px] p-5">
+        <main className="pt-[72px] p-5 bg-[#F8FAFB]">
           <Outlet />
         </main>
       </div>

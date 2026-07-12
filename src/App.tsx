@@ -1,6 +1,6 @@
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import Portfolio from './apps/Portfolio';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Portfolio from "./apps/Portfolio";
 import Restaurantapp from "./apps/restaurantapp/Restaurantapp";
 import ChefRestaurantapp from "./apps/restaurantapp/ChefRestaurantapp";
 import CoffeeApp from "./apps/CoffeeApp";
@@ -22,18 +22,19 @@ import PUBGapp from "./apps/pubg/PUBGapp.js";
 import Gameapp from "./apps/game/Gameapp.js";
 import Base from "./apps/Base/Base.js";
 import CatEnergyapp from "./apps/catenergy/CatEnergyapp.js";
-import { RealEstateApp } from './realestate/RealEstateApp';
-import KurtisClassroom from './apps/KurtisClassroom.js';
-import Belaleaapp from './apps/belalea/Belaleaapp.js';
-import { EcommerceApp } from './apps/ecommerce/EcommerceApp';
-import LoujainPortfolio from './apps/LoujainPortfolio.js';
-import Flowerapp from './apps/flower/Flowerapp.js';
+import { RealEstateApp } from "./realestate/RealEstateApp";
+import KurtisClassroom from "./apps/KurtisClassroom.js";
+import Belaleaapp from "./apps/belalea/Belaleaapp.js";
+import { EcommerceApp } from "./apps/ecommerce/EcommerceApp";
+import LoujainPortfolio from "./apps/LoujainPortfolio.js";
+import Flowerapp from "./apps/flower/Flowerapp.js";
+import AppsDashboard from "./pages/AppsDashboard.js";
 
 function App() {
   return (
     <div className="bg-[#f1f1f1] text-white">
       <Routes>
-
+        <Route path="/" element={<AppsDashboard />} />
         {/* Food Delivery App */}
         <Route path="/food-delivery/*" element={<FoodDeliveryApp />} />
 
@@ -47,7 +48,7 @@ function App() {
 
         <Route path="/coffeeapp/*" element={<CoffeeApp />} />
         <Route path="/Base/*" element={<Base />} />
-        <Route path="/admin-dashboard/*" element={<AdminDashboard/>} />
+        <Route path="/admin-dashboard/*" element={<AdminDashboard />} />
         <Route path="/admin-dashboard/signin" element={<LoginScreen />} />
         <Route path="/tastenest/*" element={<TasteNestapp />} />
         <Route path="/bankdash/*" element={<BankDashapp />} />
@@ -68,7 +69,7 @@ function App() {
         <Route path="/belalea/*" element={<Belaleaapp />} />
         <Route path="/loujainportfolio/*" element={<LoujainPortfolio />} />
         <Route path="/flower/*" element={<Flowerapp />} />
-        
+
         {/* E-Commerce App */}
         <Route path="/ecommerce/*" element={<EcommerceApp />} />
       </Routes>

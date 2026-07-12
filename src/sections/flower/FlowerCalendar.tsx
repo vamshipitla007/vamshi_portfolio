@@ -1120,7 +1120,7 @@ const CalendarScreen: React.FC = () => {
   /* ==================================== RENDER =============================== */
 
   return (
-    <div className="min-h-screen w-full bg-gray-50 px-4 py-6 sm:px-6 lg:px-8 font-sans text-gray-800">
+    <div className="min-h-screen w-full bg-gray-50 pt-5 font-sans text-gray-800">
       <div className="mx-auto">
         {/* Page header */}
         <div className="mb-5 flex items-center justify-between">

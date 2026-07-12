@@ -350,7 +350,7 @@ const Contacts = () => {
 
   return (
     <div className="min-h-screen bg-[#F7F8FA]">
-      <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mb-8 flex flex-col gap-5 pt-5 lg:flex-row lg:items-center lg:justify-between">
         <h1 className="text-[32px] font-semibold text-[#374151]">Contacts</h1>
 
         <button

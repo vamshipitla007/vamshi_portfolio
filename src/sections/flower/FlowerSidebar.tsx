@@ -41,11 +41,6 @@ const menuItems: MenuItem[] = [
     path: "/flower/dashboard",
   },
   {
-    title: "Task",
-    icon: <CheckSquare size={20} />,
-    path: "/flower/task",
-  },
-  {
     title: "E-Commerce",
     icon: <ShoppingCart size={20} />,
     children: [
@@ -83,6 +78,11 @@ const menuItems: MenuItem[] = [
     title: "Projects",
     icon: <FolderKanban size={20} />,
     path: "/flower/projects",
+  },
+  {
+    title: "Task",
+    icon: <CheckSquare size={20} />,
+    path: "/flower/task",
   },
   {
     title: "File Manager",
@@ -230,6 +230,12 @@ const Sidebar: React.FC<SidebarProps> = ({ openSidebar, setOpenSidebar }) => {
         <nav className="flex-1 mt-2 overflow-y-auto px-3 space-y-1">
           {menuItems.map((item) => {
             const hasChildren = !!item.children?.length;
+
+            const childActive =
+              item.children?.some(
+                (child) => child.path === location.pathname,
+              ) ?? false;
+
             const expanded = openMenu === item.title;
 
             if (hasChildren) {
@@ -250,10 +256,10 @@ const Sidebar: React.FC<SidebarProps> = ({ openSidebar, setOpenSidebar }) => {
                         h-[40px]
                         w-full
                         ${collapsed ? "justify-center px-0" : "justify-between px-4"}
-                        ${expanded ? "bg-[#B9EB8E]" : "hover:bg-[#B9EB8E]"}
-                    `}
+                        ${childActive ? "bg-[#B9EB8E]" : "hover:bg-[#B9EB8E]"}                   
+                         `}
                   >
-                    {expanded && (
+                    {childActive && (
                       <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r-full bg-[#21943A]" />
                     )}
 
@@ -261,9 +267,7 @@ const Sidebar: React.FC<SidebarProps> = ({ openSidebar, setOpenSidebar }) => {
                       className={`flex items-center ${collapsed ? "" : "gap-3"}`}
                     >
                       <span
-                        className={`transition-colors ${
-                          "text-[#1D2025] group-hover:text-[#1D2025]"
-                        }`}
+                        className={`transition-colors ${"text-[#1D2025] group-hover:text-[#1D2025]"}`}
                       >
                         {item.icon}
                       </span>

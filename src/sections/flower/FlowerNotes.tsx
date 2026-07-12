@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import {
   CalendarDays,
@@ -241,7 +241,7 @@ const Notes = () => {
     <div className="min-h-screen bg-[#F7F8FA]">
       {/* Header */}
 
-      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+      <div className="flex flex-col gap-4 pt-5 lg:flex-row lg:items-center lg:justify-between">
         <h1 className="text-[26px] font-semibold text-[#374151]">Notes</h1>
 
         <div className="flex items-center gap-3">
