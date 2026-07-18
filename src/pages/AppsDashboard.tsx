@@ -185,6 +185,12 @@ const apps = [
     icon: ShoppingCart,
     color: "from-indigo-500 to-blue-700",
   },
+  {
+    title: "Chat Application",
+    route: "/chat-application",
+    icon: MessageSquare,
+    color: "from-blue-500 to-indigo-600",
+  }
 ];
 
 const AppsDashboard = () => {
