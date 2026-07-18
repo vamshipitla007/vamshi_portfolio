@@ -1,0 +1,54 @@
+[
+  {
+    "id": "user-1",
+    "name": "Maya Chen",
+    "email": "maya@example.com",
+    "phone": "+1 555 0101",
+    "password": "password123",
+    "username": "maya.chen",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
+    "cover": "https://images.unsplash.com/photo-1496337589254-7e19d01cec44?auto=format&fit=crop&w=1200&q=80",
+    "about": "Product designer crafting calm digital experiences.",
+    "role": "Designer",
+    "status": "online"
+  },
+  {
+    "id": "user-2",
+    "name": "Daniel Brooks",
+    "email": "daniel@example.com",
+    "phone": "+1 555 0102",
+    "password": "password123",
+    "username": "daniel.b",
+    "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
+    "cover": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=80",
+    "about": "Engineering lead who loves thoughtful systems.",
+    "role": "Creator",
+    "status": "away"
+  },
+  {
+    "id": "user-3",
+    "name": "Ava Patel",
+    "email": "ava@example.com",
+    "phone": "+1 555 0103",
+    "password": "password123",
+    "username": "ava.p",
+    "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80",
+    "cover": "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80",
+    "about": "Creative strategist with a sharp eye for growth.",
+    "role": "Founder",
+    "status": "online"
+  },
+  {
+    "id": "user-4",
+    "name": "Noah Kim",
+    "email": "noah@example.com",
+    "phone": "+1 555 0104",
+    "password": "password123",
+    "username": "noah.k",
+    "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80",
+    "cover": "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80",
+    "about": "Product manager balancing speed and clarity.",
+    "role": "Manager",
+    "status": "offline"
+  }
+]

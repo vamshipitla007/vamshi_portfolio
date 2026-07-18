@@ -1,0 +1,38 @@
+[
+  {
+    "id": "message-1",
+    "chatId": "chat-1",
+    "senderId": "user-2",
+    "content": "Hey, can we review the onboarding flow today?",
+    "timestamp": "09:20",
+    "type": "text",
+    "status": "read"
+  },
+  {
+    "id": "message-2",
+    "chatId": "chat-1",
+    "senderId": "user-1",
+    "content": "Absolutely. I have a polished draft ready and I can share it in a few minutes.",
+    "timestamp": "09:24",
+    "type": "text",
+    "status": "read"
+  },
+  {
+    "id": "message-3",
+    "chatId": "chat-2",
+    "senderId": "user-3",
+    "content": "The new launch assets are ready and the preview looks sharp.",
+    "timestamp": "08:10",
+    "type": "text",
+    "status": "delivered"
+  },
+  {
+    "id": "message-4",
+    "chatId": "chat-3",
+    "senderId": "user-4",
+    "content": "I will share the notes after lunch and we can decide on the next steps.",
+    "timestamp": "Yesterday",
+    "type": "text",
+    "status": "sent"
+  }
+]

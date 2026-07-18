@@ -1,0 +1,54 @@
+[
+  {
+    "id": "chat-1",
+    "participantId": "user-2",
+    "title": "Daniel Brooks",
+    "lastMessage": "Can we review the onboarding flow today?",
+    "timestamp": "09:24",
+    "unread": 2,
+    "pinned": true,
+    "archived": false,
+    "online": true,
+    "accent": "from-violet-600 to-fuchsia-500",
+    "type": "direct"
+  },
+  {
+    "id": "chat-2",
+    "participantId": "user-3",
+    "title": "Ava Patel",
+    "lastMessage": "The new launch assets are ready.",
+    "timestamp": "08:10",
+    "unread": 0,
+    "pinned": false,
+    "archived": false,
+    "online": true,
+    "accent": "from-cyan-600 to-sky-500",
+    "type": "direct"
+  },
+  {
+    "id": "chat-3",
+    "participantId": "user-4",
+    "title": "Noah Kim",
+    "lastMessage": "I will share the notes after lunch.",
+    "timestamp": "Yesterday",
+    "unread": 1,
+    "pinned": false,
+    "archived": false,
+    "online": false,
+    "accent": "from-amber-600 to-orange-500",
+    "type": "direct"
+  },
+  {
+    "id": "chat-4",
+    "participantId": "user-1",
+    "title": "Maya Chen",
+    "lastMessage": "The dashboard polish looks fantastic.",
+    "timestamp": "Mon",
+    "unread": 0,
+    "pinned": false,
+    "archived": true,
+    "online": false,
+    "accent": "from-emerald-600 to-green-500",
+    "type": "direct"
+  }
+]

@@ -29,6 +29,7 @@ import { EcommerceApp } from "./apps/ecommerce/EcommerceApp";
 import LoujainPortfolio from "./apps/LoujainPortfolio.js";
 import Flowerapp from "./apps/flower/Flowerapp.js";
 import AppsDashboard from "./pages/AppsDashboard.js";
+import ChatApplication from "./apps/chat-application/ChatApplication";
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
         <Route path="/belalea/*" element={<Belaleaapp />} />
         <Route path="/loujainportfolio/*" element={<LoujainPortfolio />} />
         <Route path="/flower/*" element={<Flowerapp />} />
+        <Route path="/chat-application/*" element={<ChatApplication />} />
 
         {/* E-Commerce App */}
         <Route path="/ecommerce/*" element={<EcommerceApp />} />

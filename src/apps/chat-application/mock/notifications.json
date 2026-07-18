@@ -1,0 +1,14 @@
+[
+  {
+    "id": "n-1",
+    "title": "New message",
+    "message": "Daniel sent a note about the onboarding flow.",
+    "read": false
+  },
+  {
+    "id": "n-2",
+    "title": "Profile updated",
+    "message": "Your avatar and bio have been updated.",
+    "read": true
+  }
+]
